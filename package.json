@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "bin": {
-    "edtba": "index.js"
+    "edtba": "./src/bin.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
