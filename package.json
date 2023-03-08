@@ -1,7 +1,7 @@
 {
   "name": "tweet-cli-v2",
   "version": "1.0.0",
-  "description": "Tweet Bot API CLI",
+  "description": "Tweet CLI V2",
   "main": "index.js",
   "type": "module",
   "bin": {
