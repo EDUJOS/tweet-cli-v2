@@ -1,10 +1,14 @@
-import { outro } from '@clack/prompts'
+import { outro, text, isCancel, spinner } from '@clack/prompts'
 import colors from 'picocolors'
 import { mainSymbols } from 'figures'
 import fetch from 'node-fetch'
 import boxen from 'boxen'
+import path from 'path'
+import fs from 'fs'
+import { fileURLToPath } from 'url'
 
 import { createRequire } from 'module'
+const __dirname = fileURLToPath(new URL('.', import.meta.url))
 const require = createRequire(import.meta.url)
 const pkg = require('../package.json')
 
@@ -25,16 +29,18 @@ export function exitProgram ({ code = 0, message = `${mainSymbols.cross} Vaya, p
   process.exit(code)
 }
 
-export const Tweet = async (body) => {
+export const Tweet = async (body, token) => {
   try {
-    console.log(body)
     const TweetBody = {
       TweetBody: body
     }
     const results = await fetch('https://web-start.up.railway.app/api/singletweet', {
       method: 'POST',
       body: JSON.stringify(TweetBody),
-      headers: { 'Content-Type': 'application/json' }
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`
+      }
     })
     const data = await results.json()
     return data
@@ -42,4 +48,60 @@ export const Tweet = async (body) => {
     console.error(err)
     return err
   }
+}
+
+export const login = async () => {
+  const sp = spinner()
+  try {
+    const folderPath = path.join(__dirname, 'User-Credentials')
+    const filePath = path.join(folderPath, 'user.json')
+    if (!fs.existsSync(folderPath)) {
+      const usernameCmd = await text({
+        message: 'Parece que no te has logeado o tu sesión ha expirado, por favor inicia sesión...',
+        placeholder: 'Ingresa tu Username aquí',
+        validate (value) {
+          if (value === 0) return `${colors.yellow(`${mainSymbols.cross} Lo siento, no puedes enviar un string vacío`)}`
+        }
+      })
+      if (isCancel(usernameCmd)) exitProgram()
+      const passwordCmd = await text({
+        message: 'Introduce tu contraseña',
+        placeholder: 'Ingresa tu contraseña aquí',
+        validate (value) {
+          if (value === 0) return `${colors.yellow(`${mainSymbols.cross} Lo siento, no puedes enviar un string vacío`)}`
+        }
+      })
+      if (isCancel(passwordCmd)) exitProgram()
+      const userBody = {
+        username: usernameCmd,
+        password: passwordCmd
+      }
+      sp.start(`${colors.yellow('Iniciando sesión')}`)
+      const data = await getToken(userBody)
+      sp.stop(`${colors.green(`${mainSymbols.tick} Bienvenido de vuelta`)} ${colors.magenta(usernameCmd)}✨`)
+      const UserCredentials = {
+        username: data.username,
+        password: passwordCmd,
+        token: data.token
+      }
+      sp.start(`${colors.yellow('Creando archivo json')}`)
+      fs.mkdirSync(folderPath)
+      fs.writeFileSync(filePath, JSON.stringify(UserCredentials))
+      sp.stop(`${colors.green(`${mainSymbols.tick} Archivo json creado`)} ${colors.magenta('Tus credenciales han sido guardadas con éxito')}🔐`)
+    }
+  } catch (err) {
+    console.log(err)
+    sp.stop(`${colors.red('Vaya, parece que ha ocurrido un error inesperado...')}😅`)
+    exitProgram()
+  }
+}
+
+export const getToken = async (userBody) => {
+  const results = await fetch('https://web-start.up.railway.app/api/login', {
+    method: 'POST',
+    body: JSON.stringify(userBody),
+    headers: { 'Content-Type': 'application/json' }
+  })
+  const data = await results.json()
+  return data
 }
