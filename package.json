@@ -5,15 +5,19 @@
   "main": "index.js",
   "type": "module",
   "bin": {
-    "edtba": "./src/bin.js"
+    "edtba": "src/bin.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node src/index.js"
   },
-  "keywords": [],
-  "author": "@EdTkiere",
-  "license": "ISC",
+  "keywords": [
+    "twitter",
+    "cli",
+    "tweet",
+    "command-line-interface"
+  ],
+  "author": "Edujos",
+  "license": "MIT",
   "devDependencies": {
     "standard": "17.0.0"
   },
@@ -26,5 +30,13 @@
     "figures": "5.0.0",
     "node-fetch": "3.3.0",
     "picocolors": "1.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/EDUJOS/tweet-cli-v2"
+  },
+  "homepage": "https://github.com/EDUJOS/tweet-cli-v2#readme",
+  "bugs": {
+    "url": "https://github.com/EDUJOS/tweet-cli-v2/issues"
   }
 }
