@@ -1,5 +1,5 @@
 <h1 align="center">Tweet CLI V2</h1>
-<h1 align="center">¡Herramienta CLI sólo para usuarios asignados!</h1>
+<h1 align="center">¡Crea y publíca Tweets desde tu terminal!</h1>
 
 <div align="center">
 <img src="https://img.shields.io/npm/v/tweet-cli-v2?logo=npm&style=for-the-badge"></img>
@@ -40,4 +40,4 @@ Una vez se hayas logueado podrás publicar un tweet bajo la cuenta de nuestro bo
 
 ![useCLI](https://media.discordapp.net/attachments/1083626901832204359/1083635665415192586/v2.gif)
 
->Developed with love by Ed <3
+> Developed with love by Ed <3
