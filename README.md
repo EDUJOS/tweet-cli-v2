@@ -5,10 +5,10 @@
 <img src="https://img.shields.io/npm/v/tweet-cli-v2?logo=npm&style=for-the-badge"></img>
 <img src="https://img.shields.io/npm/dw/tweet-cli-v2?logo=npm&style=for-the-badge"></img>
 <img src="https://img.shields.io/npm/l/tweet-cli-v2?logo=npm&style=for-the-badge"></img>
-<img src="https://img.shields.io/github/stars/edujos/tweet-cli-v2?logo=github&style=for-the-badge"></img>
+<img src="https://img.shields.io/github/license/edujos/tweet-cli-v2?label=LICENSE&logo=github&style=flat-square"></img>
 <br>
+<img src="https://img.shields.io/github/stars/edujos/tweet-cli-v2?logo=github&style=for-the-badge"></img>
 <img src="https://img.shields.io/github/followers/EDUJOS?logo=GitHub&style=for-the-badge"></img>
-<img src="https://img.shields.io/github/license/edujos/tweet-cli-v2?logo=github&style=for-the-badge"></img>
 <a href="https://twitter.com/SoylaPerradeEd" target="_blank">
     <img src="https://img.shields.io/twitter/follow/SoylaPerradeEd?color=%2300acee&label=Follow%20on%20twitter&logo=twitter&style=for-the-badge"></img>
 </a>
