@@ -2,16 +2,17 @@
 <h1 align="center">¡Herramienta CLI sólo para usuarios asignados!</h1>
 
 <div align="center">
+<img src="https://img.shields.io/npm/v/tweet-cli-v2?logo=npm&style=for-the-badge"></img>
+<img src="https://img.shields.io/npm/dw/tweet-cli-v2?logo=npm&style=for-the-badge"></img>
 <img src="https://img.shields.io/github/followers/EDUJOS?logo=GitHub&style=social"></img>
-<img src="https://img.shields.io/github/stars/edujos/tweet-cli-v2?style=social"></img>
+<br>
+<img src="https://img.shields.io/github/stars/edujos/tweet-cli-v2?logo=github&style=for-the-badge"></img>
 <a href="https://twitter.com/SoylaPerradeEd" target="_blank">
-    <img src="https://img.shields.io/twitter/follow/SoylaPerradeEd?label=Follow&style=social"></img>
+    <img src="https://img.shields.io/twitter/follow/SoylaPerradeEd?color=%2300acee&label=Follow%20on%20twitter&logo=twitter&style=for-the-badge"></img>
 </a>
-<a href="https://twitter.com/intent/tweet?url=https://github.com/EDUJOS/tweet-cli-v2&text=Hey!%20Te%20comparto%20esta%20CLI%20que%20sirve%20para%20publicar%20tweets%20desde%20la%20cuenta%0de%20%40SoylaPerradeEd%0A%0ADesarrollada%20con%20amor%20por%20%40EdTkiere%20🔥" target="_blank">
+<a href="https://twitter.com/intent/tweet?url=https://github.com/EDUJOS/tweet-cli-v2&text=Hey!%20Te%20comparto%20esta%20CLI%20que%20sirve%20para%20publicar%20tweets%20desde%20la%20cuenta%20de%20%40SoylaPerradeEd%0A%0ADesarrollada%20con%20amor%20por%20%40EdTkiere%20🔥" target="_blank">
     <img src="https://img.shields.io/twitter/url?color=%2300acee&label=share%20on%20twitter&logo=twitter&style=for-the-badge&url=https%3A%2F%2Ftwitter.com%2FSoylaPerradeEd"></img>
 </a>
-<img src="https://img.shields.io/npm/v/tweet-cli-v2"></img>
-<img src="https://img.shields.io/npm/dw/tweet-cli-v2?logo=npm"></img>
 </div>
 
 #  Instalación
