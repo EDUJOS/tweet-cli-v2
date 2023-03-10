@@ -5,7 +5,7 @@
 <img src="https://img.shields.io/npm/v/tweet-cli-v2?logo=npm&style=for-the-badge"></img>
 <img src="https://img.shields.io/npm/dw/tweet-cli-v2?logo=npm&style=for-the-badge"></img>
 <img src="https://img.shields.io/npm/l/tweet-cli?logo=npm&style=for-the-badge"></img>
-<img src="https://img.shields.io/github/license/edujos/tweet-cli-v2?label=LICENSE&logo=github&style=flat-square"></img>
+<img src="https://img.shields.io/github/license/EDUJOS/tweet-cli-v2?logo=github&style=for-the-badge"></img>
 <br>
 <img src="https://img.shields.io/github/stars/edujos/tweet-cli-v2?logo=github&style=for-the-badge"></img>
 <img src="https://img.shields.io/github/followers/EDUJOS?logo=GitHub&style=for-the-badge"></img>
