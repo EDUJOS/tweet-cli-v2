@@ -1,12 +1,14 @@
-# Tweet CLI V2
+<h1 align="center">Tweet CLI V2</h1>
 <h1 align="center">¡Herramienta CLI sólo para usuarios asignados!</h1>
 
-![GitHub followers](https://img.shields.io/github/followers/EDUJOS?logo=GitHub&style=social) ![stars](https://img.shields.io/github/stars/edujos/tweet-cli-v2?style=social) ![Twitter Follow](https://img.shields.io/twitter/follow/SoylaPerradeEd?label=Follow&style=social) ![npm](https://img.shields.io/npm/v/tweet-cli-v2) ![donwloads](https://img.shields.io/npm/dw/tweet-cli-v2?logo=npm)
+<div align="center">
 
-<img align="center" src="https://media.discordapp.net/attachments/1083626901832204359/1083633491071221800/v1.gif"></img>
+![GitHub followers](https://img.shields.io/github/followers/EDUJOS?logo=GitHub&style=social) ![stars](https://img.shields.io/github/stars/edujos/tweet-cli-v2?style=social) ![Twitter Follow](https://img.shields.io/twitter/follow/SoylaPerradeEd?label=Follow&style=social) ![npm](https://img.shields.io/npm/v/tweet-cli-v2) ![donwloads](https://img.shields.io/npm/dw/tweet-cli-v2?logo=npm)
+</div>
 
 #  Instalación
-<!-- ![login](https://media.discordapp.net/attachments/1083626901832204359/1083633491071221800/v1.gif) -->
+<img align="center" src="https://media.discordapp.net/attachments/1083626901832204359/1083633491071221800/v1.gif"></img>
+
 ```
 npm install -g tweet-cli-v2
 ```
