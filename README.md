@@ -1,4 +1,4 @@
-<h1 align="center">Tweet CLI V2</h1>
+<h1 align="center">🔥 Tweet CLI V2 🔥</h1>
 <h1 align="center">¡Crea y publíca Tweets desde tu terminal!</h1>
 
 <div align="center">
