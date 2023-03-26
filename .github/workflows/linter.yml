@@ -69,9 +69,6 @@ jobs:
       - name: Check Utils Lint
         run: npm run lint-utils
 
-      - name: Echo
-        run: echo ${{ needs.*.result }}
-
   on-failure:
     permissions: write-all
     name: on-failure
@@ -99,13 +96,9 @@ jobs:
           labels: lint-error
           type: add
   
-  remove-label:
-    runs-on: ubuntu-latest
-    name: remove label
-    needs: [on-failure]
-    steps:
       - name: Remove Lint Error Label
         uses: buildsville/add-remove-label@v2.0.0
+        if: ${{ always() && contains(needs.*.result, 'success') && github.ref != 'refs/heads/master' }}
         with:
           token: ${{ github.token }}
           labels: lint-error
