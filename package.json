@@ -10,8 +10,8 @@
   "scripts": {
     "dev": "node src/index.js",
     "fix-lint": "npx standard --fix",
-    "lint-utils": "npx standard \"./utils/*.js\"",
-    "lint-src": "npx standard \"./src/*.js\""
+    "lint-utils": "npx standard \"./utils/*.js\" && npx standard --fix",
+    "lint-src": "npx standard \"./src/*.js\" && npx standard --fix"
 
   },
   "keywords": [
