@@ -22,9 +22,9 @@ async function main () {
     ]
   })
 
-  if(isCancel(tweetCmd)) exitProgram()
+  if (isCancel(tweetCmd)) exitProgram()
 
-  if(tweetCmd === 'tweet') {
+  if (tweetCmd === 'tweet') {
     await login()
     const publishTweet = await text({
       message: colors.blue('Ingresa el cuerpo del Tweet a publicar'),
@@ -36,7 +36,7 @@ async function main () {
       }
     })
 
-    if(isCancel(publishTweet)) exitProgram()
+    if (isCancel(publishTweet)) exitProgram()
 
     const tweetConf = await confirm({
       initialValue: true,
