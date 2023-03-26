@@ -1,0 +1,5 @@
+lint-error:
+  - any: ["src/*.js, utils/*.js"]
+
+Tweet-CLI-Utils:
+  - any: ["utils/*.js"]
