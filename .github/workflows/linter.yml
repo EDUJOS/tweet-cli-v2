@@ -2,6 +2,7 @@ name: Lint Check
 on:
   pull_request:
     branches: [master]
+    types: [opened, synchronize, edited, reopened]
 jobs:
   pre-ci:
     name: pre-ci
