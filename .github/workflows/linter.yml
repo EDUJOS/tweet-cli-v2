@@ -66,8 +66,11 @@ jobs:
           node-version: 18
           run: npm ci
 
-      - name: check-utils-lint
+      - name: Check Utils Lint
         run: npm run lint-utils
+
+      - name: Echo
+        run: echo ${{ needs.*.result }}
 
   on-failure:
     permissions: write-all
