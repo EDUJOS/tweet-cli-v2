@@ -72,7 +72,7 @@ export const login = async () => {
           if (value === 0) return `${colors.yellow(`${mainSymbols.cross} Lo siento, no puedes enviar un string vacío`)}`
         }
       })
-      if (isCancel(passwordCmd)) exitProgram()
+      if(isCancel(passwordCmd)) exitProgram()
       const userBody = {
         username: usernameCmd,
         password: passwordCmd
