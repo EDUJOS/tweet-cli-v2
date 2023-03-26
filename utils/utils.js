@@ -112,3 +112,8 @@ export const getToken = async (userBody) => {
   const data = await results.json()
   return data
 }
+
+export const prueba = async(txt) => {
+  console.log(txt)
+  return true
+}
