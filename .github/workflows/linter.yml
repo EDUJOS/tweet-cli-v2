@@ -52,17 +52,14 @@ jobs:
     runs-on: ubuntu-latest
     if: needs.pre-ci.outputs.utils == 'true'
     steps:
-      - uses: actions/checkout@v3
+      - name: check-utils-lint
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
-
-      - name: check-utils-lint
-        uses: actions/setup-node@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: 16
-          run: |
-            npm ci
-            npm run lint-utils
+          node-version: 18
+          run: npm ci && npm run lint-utils
 
   on-failure:
     permissions: write-all
