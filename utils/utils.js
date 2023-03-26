@@ -56,7 +56,7 @@ export const login = async () => {
   try {
     const folderPath = path.join(__dirname, 'User-Credentials')
     const filePath = path.join(folderPath, 'user.json')
-    if (!fs.existsSync(folderPath)) {
+    if(!fs.existsSync(folderPath)) {
       const usernameCmd = await text({
         message: 'Parece que no te has logeado o tu sesión ha expirado, por favor inicia sesión... 🍟',
         placeholder: 'Ingresa tu Username aquí 👀',
@@ -64,7 +64,7 @@ export const login = async () => {
           if (value === 0) return `${colors.yellow(`${mainSymbols.cross} Lo siento, no puedes enviar un string vacío`)}`
         }
       })
-      if (isCancel(usernameCmd)) exitProgram()
+      if(isCancel(usernameCmd)) exitProgram()
       const passwordCmd = await text({
         message: 'Introduce tu contraseña 🔐',
         placeholder: 'Ingresa tu contraseña aquí 👀',
@@ -72,7 +72,7 @@ export const login = async () => {
           if (value === 0) return `${colors.yellow(`${mainSymbols.cross} Lo siento, no puedes enviar un string vacío`)}`
         }
       })
-      if (isCancel(passwordCmd)) exitProgram()
+      if(isCancel(passwordCmd)) exitProgram()
       const userBody = {
         username: usernameCmd,
         password: passwordCmd
