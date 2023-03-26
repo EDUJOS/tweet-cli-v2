@@ -60,7 +60,9 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
-          run: npm run lint-utils
+          run: |
+            npm ci
+            npm run lint-utils
 
   on-failure:
     permissions: write-all
