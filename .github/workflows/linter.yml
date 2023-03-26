@@ -88,3 +88,22 @@ jobs:
         with:
           name: pr_num
           path: ./pr_num.txt
+
+      - name: Add Lint Error Label
+        uses: buildsville/add-remove-label@v2.0.0
+        with:
+          token: ${{ github.token }}
+          labels: lint-error
+          type: add
+  
+  remove-label:
+    runs-on: ubuntu-latest
+    name: remove label
+    needs: [on-failure]
+    steps:
+      - name: Remove Lint Error Label
+        uses: buildsville/add-remove-label@v2.0.0
+        with:
+          token: ${{ github.token }}
+          labels: lint-error
+          type: remove

@@ -3,3 +3,6 @@ lint-error:
 
 Tweet-CLI-Utils:
   - any: ["utils/*.js"]
+
+src:
+  - any: ["src/*.js"]
