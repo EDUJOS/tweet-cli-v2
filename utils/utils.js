@@ -61,10 +61,10 @@ export const login = async () => {
         message: 'Parece que no te has logeado o tu sesión ha expirado, por favor inicia sesión... 🍟',
         placeholder: 'Ingresa tu Username aquí 👀',
         validate (value) {
-          if (value === 0) return `${colors.yellow(`${mainSymbols.cross} Lo siento, no puedes enviar un string vacío`)}`
+          if(value === 0) return `${colors.yellow(`${mainSymbols.cross} Lo siento, no puedes enviar un string vacío`)}`
         }
       })
-      if (isCancel(usernameCmd)) exitProgram()
+      if(isCancel(usernameCmd)) exitProgram()
       const passwordCmd = await text({
         message: 'Introduce tu contraseña 🔐',
         placeholder: 'Ingresa tu contraseña aquí 👀',
