@@ -37,11 +37,11 @@ jobs:
                body: 'Continuous integration check(s) failed. Please review the failing check\'s logs and make the necessary changes. ' + context.payload.workflow_run.html_url
             })
 
-  triage:
-    permissions:
-      contents: read
-      pull-requests: write
-    runs-on: ubuntu-latest
-    needs: [on-failure]
-    steps:
-    - uses: actions/labeler@v4
+  # triage:
+  #   permissions:
+  #     contents: read
+  #     pull-requests: write
+  #   runs-on: ubuntu-latest
+  #   needs: [on-failure]
+  #   steps:
+  #   - uses: actions/labeler@v4
