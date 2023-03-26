@@ -1,9 +1,15 @@
 name: "Pull Request Labeler"
 on:
 - pull_request_target
+  # pull_request_target:
+  #   branches: [master]
+  # workflow_run:
+  #   workflows: [Lint Check]
+  #   types: [completed]
 
 jobs:
   triage:
+    if: ${{}}
     permissions:
       contents: read
       pull-requests: write
