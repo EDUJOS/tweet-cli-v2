@@ -3,25 +3,70 @@ on:
   pull_request:
     branches: [master]
 jobs:
-  lint:
+  pre-ci:
+    name: pre-ci
     runs-on: ubuntu-latest
+    outputs:
+      src: ${{ steps.export-changes.outputs.src }}
+      utils: ${{ steps.export-changes.outputs.utils }}
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          filters: |
+            be-src:
+              - 'src/*/*.js'
+            be-utils:
+              - 'utils/*.js'
+
+      - name: Export changes
+        id: export-changes
+        run: |
+          echo "src=${{ steps.filter.outputs.be-src }}" >> $GITHUB_OUTPUT
+          echo "utils=${{ steps.filter.outputs.be-utils }}" >> $GITHUB_OUTPUT
+
+  lint-src:
+    needs: [pre-ci]
+    runs-on: ubuntu-latest
+    if: needs.pre-ci.outputs.src == 'true'
     steps:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
-      - name: check-lint
-        uses: github/super-linter@v4
-        env:
-          VALIDATE_ALL_CODEBASE: false
-          DEFAULT_BRANCH: master
-          GITHUB_TOKEN: ${{ github.token }}
+      - name: check-src-lint
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          run: npm run lint-src
+        # uses: github/super-linter@v4
+        # env:
+        #   VALIDATE_ALL_CODEBASE: false
+        #   DEFAULT_BRANCH: master
+        #   GITHUB_TOKEN: ${{ github.token }}
+
+  lint-utils:
+    needs: [pre-ci]
+    runs-on: ubuntu-latest
+    if: needs.pre-ci.outputs.utils == 'true'
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: check-utils-lint
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          run: npm run lint-utils
 
   on-failure:
     permissions: write-all
     name: on-failure
     runs-on: ubuntu-latest
-    needs: [lint]
+    needs: [lint-src, lint-utils]
     if: ${{ always() && contains(needs.*.result, 'failure') && github.ref != 'refs/heads/master' }}
     steps:
       - uses: actions/checkout@v3

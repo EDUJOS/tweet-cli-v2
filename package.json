@@ -9,7 +9,10 @@
   },
   "scripts": {
     "dev": "node src/index.js",
-    "lint": "npx standard --fix"
+    "fix-lint": "npx standard --fix",
+    "lint-utils": "npx standard \"./utils/*.js\"",
+    "lint-src": "npx standard \"./src/*.js\""
+
   },
   "keywords": [
     "twitter",
