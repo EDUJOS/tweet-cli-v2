@@ -113,7 +113,7 @@ export const getToken = async (userBody) => {
   return data
 }
 
-export const prueba = async (txt) => {
+export const prueba = async(txt) =>{
   console.log(txt)
   return true
 }
