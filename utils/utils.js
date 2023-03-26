@@ -34,6 +34,7 @@ export const Tweet = async (body, token) => {
     const TweetBody = {
       TweetBody: body
     }
+    // Api status: Off
     const results = await fetch('https://web-start.up.railway.app/api/singletweet', {
       method: 'POST',
       body: JSON.stringify(TweetBody),
@@ -57,16 +58,16 @@ export const login = async () => {
     const filePath = path.join(folderPath, 'user.json')
     if (!fs.existsSync(folderPath)) {
       const usernameCmd = await text({
-        message: 'Parece que no te has logeado o tu sesión ha expirado, por favor inicia sesión...',
-        placeholder: 'Ingresa tu Username aquí',
+        message: 'Parece que no te has logeado o tu sesión ha expirado, por favor inicia sesión... 🍟',
+        placeholder: 'Ingresa tu Username aquí 👀',
         validate (value) {
           if (value === 0) return `${colors.yellow(`${mainSymbols.cross} Lo siento, no puedes enviar un string vacío`)}`
         }
       })
       if (isCancel(usernameCmd)) exitProgram()
       const passwordCmd = await text({
-        message: 'Introduce tu contraseña',
-        placeholder: 'Ingresa tu contraseña aquí',
+        message: 'Introduce tu contraseña 🔐',
+        placeholder: 'Ingresa tu contraseña aquí 👀',
         validate (value) {
           if (value === 0) return `${colors.yellow(`${mainSymbols.cross} Lo siento, no puedes enviar un string vacío`)}`
         }
@@ -78,16 +79,21 @@ export const login = async () => {
       }
       sp.start(`${colors.yellow('Iniciando sesión')}`)
       const data = await getToken(userBody)
-      sp.stop(`${colors.green(`${mainSymbols.tick} Bienvenido de vuelta`)} ${colors.magenta(usernameCmd)}✨`)
-      const UserCredentials = {
-        username: data.username,
-        password: passwordCmd,
-        token: data.token
+      if (data.error === 'Invalid user or password') {
+        sp.stop(`${colors.red(`${mainSymbols.cross}`)} ${colors.yellow(`Ups... Parece que tus credenciales son inválidas.\nIntenta ejecutar: ${colors.magenta(`edtba ${mainSymbols.arrowRight} npx edtba`)} para intentarlo una vez más!`)} 😅`)
+        exitProgram()
+      } else {
+        sp.stop(`${colors.green(`${mainSymbols.tick} Bienvenido de vuelta`)} ${colors.magenta(usernameCmd)}✨`)
+        const UserCredentials = {
+          username: data.username,
+          password: passwordCmd,
+          token: data.token
+        }
+        sp.start(`${colors.yellow('Guardando credenciales 📩')}`)
+        fs.mkdirSync(folderPath)
+        fs.writeFileSync(filePath, JSON.stringify(UserCredentials))
+        sp.stop(`${colors.green(`${mainSymbols.tick}`)} ${colors.magenta('Tus credenciales han sido guardadas con éxito')}🔐`)
       }
-      sp.start(`${colors.yellow('Creando archivo json')}`)
-      fs.mkdirSync(folderPath)
-      fs.writeFileSync(filePath, JSON.stringify(UserCredentials))
-      sp.stop(`${colors.green(`${mainSymbols.tick} Archivo json creado`)} ${colors.magenta('Tus credenciales han sido guardadas con éxito')}🔐`)
     }
   } catch (err) {
     console.log(err)
@@ -97,6 +103,7 @@ export const login = async () => {
 }
 
 export const getToken = async (userBody) => {
+  // Api status: Off
   const results = await fetch('https://web-start.up.railway.app/api/login', {
     method: 'POST',
     body: JSON.stringify(userBody),
