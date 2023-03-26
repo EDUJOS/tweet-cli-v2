@@ -96,9 +96,14 @@ jobs:
           labels: lint-error
           type: add
   
+  remove-label:
+    runs-on: ubuntu-latest
+    name: remove label
+    needs: [on-failure]
+    if: ${{ always() && contains(needs.*.result, 'skipped') && github.ref != 'refs/heads/master' }}
+    steps:
       - name: Remove Lint Error Label
         uses: buildsville/add-remove-label@v2.0.0
-        if: ${{ always() && contains(needs.*.result, 'success') && github.ref != 'refs/heads/master' }}
         with:
           token: ${{ github.token }}
           labels: lint-error
