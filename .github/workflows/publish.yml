@@ -14,6 +14,10 @@ jobs:
           node-version: '18'
           registry-url: https://registry.npmjs.org/
       # - run: npm ci
+      - run: |
+          git config user.email '${{ secrets.GIT_USER_EMAIL }}'
+          git config user.name '${{ secrets.GIT_USER_NAME }}'
+
       - run: npm version patch
       - run: npm publish
         env:
