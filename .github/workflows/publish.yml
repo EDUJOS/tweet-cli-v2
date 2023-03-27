@@ -15,8 +15,8 @@ jobs:
           registry-url: https://registry.npmjs.org/
       # - run: npm ci
       - run: |
-          git config user.email 'josuegomo@hotmail.com'
-          git config user.name 'EDUJOS'
+          git config user.email '${{ secrets.GIT_USER_EMAIL }}'
+          git config user.name '${{ secrets.GIT_USER_NAME }}'
 
       - run: npm version patch
       - run: npm publish
