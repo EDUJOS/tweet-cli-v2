@@ -24,7 +24,6 @@
 npm install -g tweet-cli-v2
 ```
 
-# Uso
 Para empezar a usar el **Tweet-CLI-V2** lo único que tienes que hacer es ejecuar el siguiente comando
 ```bash
 edtba
