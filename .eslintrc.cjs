@@ -16,6 +16,25 @@ module.exports = {
       'error',
       2
     ],
+    'block-spacing': [
+      'error',
+      'always'
+    ],
+    'no-multi-spaces': [
+      'error',
+      {
+        'ignoreEOLComments': false
+      }
+    ],
+    'no-multiple-empty-lines': [
+      'error',
+      {
+        'max': 2
+      }
+    ],
+    'no-trailing-spaces': [
+      'error'
+    ],
     'linebreak-style': [
       'error',
       'windows'

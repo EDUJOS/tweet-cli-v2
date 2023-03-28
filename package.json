@@ -12,9 +12,9 @@
   },
   "scripts": {
     "dev": "node src/index.js",
-    "fix-lint": "npx standard --fix",
-    "lint-utils": "npx standard \"./utils/*.js\"",
-    "lint-src": "npx standard \"./src/*.js\""
+    "fix-lint": "npx eslint --fix",
+    "lint-utils": "npx eslint './utils/*.js'",
+    "lint-src": "npx eslint './src/*.js'"
   },
   "keywords": [
     "twitter",
@@ -25,11 +25,9 @@
   "author": "Edujos",
   "license": "MIT",
   "devDependencies": {
-    "standard": "17.0.0"
+    "eslint": "8.36.0"
   },
-  "eslintConfig": {
-    "extends": "standard"
-  },
+  
   "dependencies": {
     "@clack/prompts": "0.6.1",
     "boxen": "7.0.1",

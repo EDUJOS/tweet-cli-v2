@@ -13,40 +13,59 @@ Antes de enviar cualquier pull request, asegúrate de seguir estas pautas:
 
 ## Linter
 
-- Asegúrate de que tu código sigue el estándar de lint especificado para el proyecto. Puedes encontrar las reglas en el archivo `.eslintrc.cjs` o en el archivo `README.md`.
+- Asegúrate de que tu código sigue el estándar de lint especificado para el proyecto. Puedes encontrar las reglas en el archivo [`.eslintrc.cjs`](https://github.com/EDUJOS/tweet-cli-v2/blob/master/.eslintrc.cjs) o en el archivo `README.md`.
     ```js
-    module.exports = {
-    'env': {
-        'browser': false,
-        'node': true,
-        'es2021': true
-    },
-    'extends': 'eslint:recommended',
-    'overrides': [
+module.exports = {
+  'env': {
+    'browser': false,
+    'node': true,
+    'es2021': true
+  },
+  'extends': 'eslint:recommended',
+  'overrides': [
+  ],
+  'parserOptions': {
+    'ecmaVersion': 'latest',
+    'sourceType': 'module'
+  },
+  'rules': {
+    'indent': [
+      'error',
+      2
     ],
-    'parserOptions': {
-        'ecmaVersion': 'latest',
-        'sourceType': 'module'
-    },
-    'rules': {
-        'indent': [
-        'error',
-        2
-        ],
-        'linebreak-style': [
-        'error',
-        'windows'
-        ],
-        'quotes': [
-        'error',
-        'single'
-        ],
-        'semi': [
-        'error',
-        'never'
-        ]
-    }
-    }
+    'block-spacing': [
+      'error',
+      'always'
+    ],
+    'no-multi-spaces': [
+      'error',
+      {
+        'ignoreEOLComments': false
+      }
+    ],
+    'no-multiple-empty-lines': [
+      'error',
+      {
+        'max': 2
+      }
+    ],
+    'no-trailing-spaces': [
+      'error'
+    ],
+    'linebreak-style': [
+      'error',
+      'windows'
+    ],
+    'quotes': [
+      'error',
+      'single'
+    ],
+    'semi': [
+      'error',
+      'never'
+    ]
+  }
+}
     ```
 
 - Ejecuta las pruebas unitarias del proyecto para asegurarte de que tu contribución no rompa la funcionalidad existente. 
