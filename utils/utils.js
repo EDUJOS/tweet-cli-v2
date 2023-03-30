@@ -8,11 +8,13 @@ import fs from 'fs'
 import { fileURLToPath } from 'url'
 
 import { createRequire } from 'module'
+import { API_URL } from './constants'
 const __dirname = fileURLToPath(new URL('.', import.meta.url))
 const require = createRequire(import.meta.url)
 const pkg = require('../package.json')
 
 const infoMsg = `${colors.magenta(mainSymbols.pointer)} ${colors.yellow('Tweet CLI V2 Version:')} ${colors.blue(pkg.version)}\n\n${colors.magenta(mainSymbols.pointer)} ${colors.yellow('Click here for additional information:')} ${colors.blue('https://github.com/EDUJOS/tweet-cli-v2')}`
+const sp = spinner()
 
 export const info = boxen(infoMsg, {
   title: 'Developed with love by @EdTkiere <3',
@@ -35,7 +37,7 @@ export const Tweet = async (body, token) => {
       TweetBody: body
     }
     // Api status: Off
-    const results = await fetch('https://web-start.up.railway.app/api/singletweet', {
+    const results = await fetch(`${API_URL}/api/singletweet`, {
       method: 'POST',
       body: JSON.stringify(TweetBody),
       headers: {
@@ -52,9 +54,8 @@ export const Tweet = async (body, token) => {
 }
 
 export const login = async () => {
-  const sp = spinner()
   try {
-    const folderPath = path.join(__dirname, 'User-Credentials')
+    const folderPath = path.join(__dirname, '.././cli-config/credentials')
     const filePath = path.join(folderPath, 'user.json')
     if (!fs.existsSync(folderPath)) {
       const usernameCmd = await text({
@@ -91,7 +92,7 @@ export const login = async () => {
         }
         sp.start(`${colors.yellow('Guardando credenciales 📩')}`)
         fs.mkdirSync(folderPath)
-        fs.writeFileSync(filePath, JSON.stringify(UserCredentials))
+        fs.writeFileSync(filePath, JSON.stringify(UserCredentials, null, '\t'))
         sp.stop(`${colors.green(`${mainSymbols.tick}`)} ${colors.magenta('Tus credenciales han sido guardadas con éxito')}🔐`)
       }
     }
@@ -104,7 +105,7 @@ export const login = async () => {
 
 export const getToken = async (userBody) => {
   // Api status: Off
-  const results = await fetch('https://web-start.up.railway.app/api/login', {
+  const results = await fetch(`${API_URL}/api/login`, {
     method: 'POST',
     body: JSON.stringify(userBody),
     headers: { 'Content-Type': 'application/json' }
