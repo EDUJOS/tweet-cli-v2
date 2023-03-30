@@ -53,6 +53,16 @@ export const Tweet = async (body, token) => {
   }
 }
 
+export const tweetInfo = async (url) => {
+  const data = getTweetId(url)
+  if (data === false) {
+    sp.stop('Ups!')
+    exitProgram({message: 'La url es inválida'})
+  } else {
+    return
+  }
+}
+
 export const login = async () => {
   try {
     const folderPath = path.join(__dirname, '.././cli-config/credentials')
@@ -112,4 +122,21 @@ export const getToken = async (userBody) => {
   })
   const data = await results.json()
   return data
+}
+
+const getTweetId = (tweetUrl) => {
+  let tweetId
+  if (tweetUrl.includes('https://twitter.com/') && tweetUrl.includes('status')) {
+    let separada = tweetUrl.split('/')[5]
+    if (tweetUrl.includes('?')) {
+      tweetId = separada.split('?')[0]
+      console.log(tweetId)
+      return tweetId
+    } else {
+      tweetId = separada
+      return tweetId
+    }
+  } else {
+    return false
+  }
 }
