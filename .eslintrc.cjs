@@ -29,7 +29,7 @@ module.exports = {
     'no-multiple-empty-lines': [
       'error',
       {
-        'max': 2
+        'max': 1
       }
     ],
     'no-trailing-spaces': [
