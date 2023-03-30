@@ -1,4 +1,4 @@
 /node_modules
 /pruebas
-/utils/User-Credentials
+/cli-config/credentials
 pnpm-lock.yaml
