@@ -8,3 +8,5 @@ const placeholders = [
 const random = Math.floor(Math.random()*(placeholders.length))
 
 export const RANDOM_PLACEHOLDER = `${placeholders[random]}`
+
+export const API_URL = 'https://web-start.up.railway.app'
