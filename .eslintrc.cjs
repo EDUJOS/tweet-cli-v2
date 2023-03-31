@@ -35,6 +35,26 @@ module.exports = {
         'after': true
       }
     ],
+    'comma-dangle': [
+      'error',
+      'never'
+    ],
+    'comma-style': [
+      'error',
+      'last'
+    ],
+    'eol-last': [
+      'error',
+      'always'
+    ],
+    'func-call-spacing': [
+      'error',
+      'never'
+    ],
+    'key-spacing': [
+      'error',
+      { 'afterColon': true }
+    ],
     'block-spacing': [
       'error',
       'always'
@@ -80,26 +100,6 @@ module.exports = {
     'camelcase': [
       'error',
       'always'
-    ],
-    'comma-dangle': [
-      'error',
-      'never'
-    ],
-    'comma-style': [
-      'error',
-      'last'
-    ],
-    'eol-last': [
-      'error',
-      'always'
-    ],
-    'func-call-spacing': [
-      'error',
-      'never'
-    ],
-    'key-spacing': [
-      'error',
-      { 'afterColon': true }
     ]
   }
 }
