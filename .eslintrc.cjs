@@ -16,6 +16,25 @@ module.exports = {
       'error',
       2
     ],
+    'keyword-spacing': [
+      'error',
+      {
+        'after': true
+      }
+    ],
+    'space-before-function-paren': [
+      'error',
+      'always'
+    ],
+    'space-infix-ops': [
+      'error'
+    ],
+    'comma-spacing': [
+      'error',
+      {
+        'after': true
+      }
+    ],
     'block-spacing': [
       'error',
       'always'
@@ -46,6 +65,41 @@ module.exports = {
     'semi': [
       'error',
       'never'
+    ],
+    'eqeqeq': [
+      'error',
+      'always'
+    ],
+    'brace-style': [
+      'erorr'
+    ],
+    'curly': [
+      'error',
+      'multi-line'
+    ],
+    'camelcase': [
+      'error',
+      'always'
+    ],
+    'comma-dangle': [
+      'error',
+      'never'
+    ],
+    'comma-style': [
+      'error',
+      'last'
+    ],
+    'eol-last': [
+      'error',
+      'always'
+    ],
+    'func-call-spacing': [
+      'error',
+      'never'
+    ],
+    'key-spacing': [
+      'error',
+      { 'afterColon': true }
     ]
   }
 }
