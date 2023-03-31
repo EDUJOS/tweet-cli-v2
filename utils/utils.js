@@ -8,7 +8,7 @@ import fs from 'fs'
 import { fileURLToPath } from 'url'
 
 import { createRequire } from 'module'
-import { API_URL } from './constants'
+import { API_URL } from './constants.js'
 const __dirname = fileURLToPath(new URL('.', import.meta.url))
 const require = createRequire(import.meta.url)
 const pkg = require('../package.json')
@@ -54,12 +54,22 @@ export const Tweet = async (body, token) => {
 }
 
 export const tweetInfo = async (url) => {
-  const data = getTweetId(url)
-  if (data === false) {
-    sp.stop('Ups!')
-    exitProgram({message: 'La url es inválida'})
+  sp.start('Procesando solicitud')
+  const id = getTweetId(url)
+  if (id === false) {
+    sp.stop(`${colors.yellow('Ups...')}`)
+    exitProgram({ message: 'La url es inválida' })
   } else {
-    return
+    const results = await fetch(`${API_URL}/api/tweetinfo/${id}`)
+    const data = await results.json()
+    if (data.error === 'Not Found') {
+      sp.stop('Vaya! Parece que el Tweet del que quieres obtener información fue eliminado.')
+      exitProgram({ message: 'Chauuu' })
+    } else {
+      sp.stop('Tweet recuperado con éxito')
+      console.log(data)
+      outro('Finish')
+    }
   }
 }
 
@@ -138,5 +148,14 @@ const getTweetId = (tweetUrl) => {
     }
   } else {
     return false
+  }
+}
+
+export async function apiHealth () {
+  try {
+    await fetch(`${API_URL}/api/health`)
+      .then(res => res.json())
+  } catch (err) {
+    exitProgram({ message: 'Vaya! Parece que la API está caída :(' })
   }
 }

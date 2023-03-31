@@ -1,8 +1,8 @@
 import { intro, outro, text, select, isCancel, spinner, confirm } from '@clack/prompts'
-import { setTimeout as sleep } from 'node:timers/promises'
+// import { setTimeout as sleep } from 'node:timers/promises'
 import colors from 'picocolors'
 import { mainSymbols } from 'figures'
-import { exitProgram, Tweet, info, login, getToken } from '../utils/utils.js'
+import { exitProgram, Tweet, info, login, getToken, tweetInfo, apiHealth } from '../utils/utils.js'
 import { RANDOM_PLACEHOLDER } from '../utils/constants.js'
 import path from 'path'
 import fs from 'fs'
@@ -28,6 +28,7 @@ async function main () {
   if (isCancel(tweetCmd)) exitProgram()
 
   if (tweetCmd === 'tweet') {
+    await apiHealth()
     await login()
     const publishTweet = await text({
       message: colors.blue('Ingresa el cuerpo del Tweet a publicar'),
@@ -66,10 +67,17 @@ async function main () {
     }
   }
   if (tweetCmd === 'tweetInfo') {
-    sp.start(colors.magenta('Procesando solicitud'))
-    await sleep(2000)
-    sp.stop(colors.red('Lo siento, esta función no está diponible por el momento.'))
-    outro(colors.magenta('Pero no te preocupes que pronto estará disponible!!'))
+    await apiHealth()
+    const tweetUrl = await text({
+      message: colors.blue('Visualiza información pública de un Tweet. (No requiere iniciar sesión)'),
+      placeholder: 'Ingresa la url del Tweet 🔗',
+      validate (value) {
+        if (value.length > 200) return `${colors.red(`${mainSymbols.cross} Asegúrate de no ingresar más de 100 caracteres`)}`
+        if (value.length === 0) return `${colors.red(`${mainSymbols.cross} Uhmm, asegúrate de ingresar al menos más de 2 caracteres`)}`
+      }
+    })
+    if (isCancel(tweetUrl)) exitProgram()
+    await tweetInfo(tweetUrl)
   }
 }
 
