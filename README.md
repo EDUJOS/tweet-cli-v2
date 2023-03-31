@@ -2,18 +2,20 @@
 <h1 align="center">¡Crea y publíca Tweets desde tu terminal!</h1>
 
 <div align="center">
-<img src="https://img.shields.io/npm/v/tweet-cli-v2?logo=npm&style=for-the-badge"></img>
-<img src="https://img.shields.io/npm/dw/tweet-cli-v2?logo=npm&style=for-the-badge"></img>
-<img src="https://img.shields.io/npm/l/tweet-cli?logo=npm&style=for-the-badge"></img>
-<img src="https://img.shields.io/github/license/EDUJOS/tweet-cli-v2?logo=github&style=for-the-badge"></img>
-<br>
-<img src="https://img.shields.io/github/stars/edujos/tweet-cli-v2?logo=github&style=for-the-badge"></img>
-<img src="https://img.shields.io/github/followers/EDUJOS?logo=GitHub&style=for-the-badge"></img>
+<img src="https://img.shields.io/github/v/release/EDUJOS/tweet-cli-v2?style=for-the-badge&logo=github&color=7e53fc&logoColor=D9E0EE&labelColor=302D41&include_prerelease&sort=semver">
+<img src="https://img.shields.io/npm/v/tweet-cli-v2?style=for-the-badge&logo=npm&color=7e53fc&logoColor=D9E0EE&labelColor=302D41"></img>
+<img src="https://img.shields.io/npm/dw/tweet-cli-v2?style=for-the-badge&logo=npm&color=3dff98&logoColor=D9E0EE&labelColor=302D41"></img>
+<img src="https://img.shields.io/npm/l/tweet-cli?style=for-the-badge&logo=npm&color=ee9999&logoColor=D9E0EE&labelColor=302D41"></img>
+<img src="https://img.shields.io/github/license/EDUJOS/tweet-cli-v2?style=for-the-badge&logo=github&color=ee9999&logoColor=D9E0EE&labelColor=302D41"></img>
+<!--<br>-->
+<img src="https://img.shields.io/github/issues/EDUJOS/tweet-cli-v2?style=for-the-badge&logo=bilibili&color=faff69&logoColor=D9E0EE&labelColor=302D41">
+<img src="https://img.shields.io/github/stars/EDUJOS/tweet-cli-v2?style=for-the-badge&logo=starship&color=699bff&logoColor=D9E0EE&labelColor=302D41"></img>
+<!--<img src="https://img.shields.io/github/followers/EDUJOS?style=for-the-badge&logo=github&color=699bff&logoColor=D9E0EE&labelColor=302D41"></img>-->
 <a href="https://twitter.com/SoylaPerradeEd" target="_blank">
-    <img src="https://img.shields.io/twitter/follow/SoylaPerradeEd?color=%2300acee&label=Follow%20on%20twitter&logo=twitter&style=for-the-badge"></img>
+    <img src="https://img.shields.io/twitter/follow/SoylaPerradeEd?color=%2300acee&labelColor=302D41&label=Follow%20on%20twitter&logo=twitter&style=for-the-badge"></img>
 </a>
 <a href="https://twitter.com/intent/tweet?url=https://github.com/EDUJOS/tweet-cli-v2&text=Hey!%20Te%20comparto%20esta%20CLI%20que%20sirve%20para%20publicar%20tweets%20desde%20la%20cuenta%20de%20%40SoylaPerradeEd%0A%0ADesarrollada%20con%20amor%20por%20%40EdTkiere%20🔥" target="_blank">
-    <img src="https://img.shields.io/twitter/url?color=%2300acee&label=share%20on%20twitter&logo=twitter&style=for-the-badge&url=https%3A%2F%2Ftwitter.com%2FSoylaPerradeEd"></img>
+    <img src="https://img.shields.io/twitter/url?color=%2300acee&labelColor=302D41&label=share%20on%20twitter&logo=twitter&style=for-the-badge&url=https%3A%2F%2Ftwitter.com%2FSoylaPerradeEd"></img>
 </a>
 </div>
 
