@@ -61,14 +61,37 @@ export const tweetInfo = async (url) => {
     exitProgram({ message: 'La url es inválida' })
   } else {
     const results = await fetch(`${API_URL}/api/tweetinfo/${id}`)
-    const data = await results.json()
-    if (data.error === 'Not Found') {
+    const {
+      username,
+      name,
+      tweet_text,
+      created_at,
+      like_count,
+      retweet_count,
+      reply_count,
+      quote_count,
+      impression_count,
+      error
+    } = await results.json()
+    if (error === 'Not Found') {
       sp.stop('Vaya! Parece que el Tweet del que quieres obtener información fue eliminado.')
       exitProgram({ message: 'Chauuu' })
     } else {
-      sp.stop('Tweet recuperado con éxito')
-      console.log(data)
-      outro('Finish')
+      sp.stop(`${colors.green(mainSymbols.tick)}`)
+      console.clear()
+      const newDate = new Date(created_at)
+      const date = newDate.toLocaleString('en-US')
+      const message = `${colors.blue('Usuario:')} ${name}\n${colors.blue('Tweet:')} ${tweet_text}\n${colors.blue('Likes:')} ${like_count} 💖\n${colors.blue('Retweets:')} ${retweet_count}\n${colors.blue('Respuestas:')} ${reply_count}\n${colors.blue('Tweets citados:')} ${quote_count}\n${colors.blue('Vistas:')} ${impression_count}\n${colors.blue('Publicado:')} ${date}`
+      const TWEET_INFO = boxen(message, {
+        title: `El Tweet de ${colors.magenta(username)} se ha recuperado con éxito`,
+        titleAlignment: 'center',
+        padding: 2,
+        borderColor: 'magenta',
+        borderStyle: 'round',
+        width: 80,
+        textAlignment: 'left'
+      })
+      outro(`\n${TWEET_INFO}`)
     }
   }
 }
