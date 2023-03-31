@@ -153,9 +153,12 @@ const getTweetId = (tweetUrl) => {
 
 export async function apiHealth () {
   try {
+    sp.start()
     await fetch(`${API_URL}/api/health`)
       .then(res => res.json())
+    sp.stop()
   } catch (err) {
+    sp.stop()
     exitProgram({ message: 'Vaya! Parece que la API está caída :(' })
   }
 }
