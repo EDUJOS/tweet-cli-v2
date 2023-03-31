@@ -2,7 +2,7 @@ import { intro, outro, text, select, isCancel, spinner, confirm } from '@clack/p
 // import { setTimeout as sleep } from 'node:timers/promises'
 import colors from 'picocolors'
 import { mainSymbols } from 'figures'
-import { exitProgram, Tweet, info, login, getToken, tweetInfo, apiHealth } from '../utils/utils.js'
+import { exitProgram, Tweet, info, login, getToken, tweetInfo, apiHealthCheck } from '../utils/utils.js'
 import { RANDOM_PLACEHOLDER } from '../utils/constants.js'
 import path from 'path'
 import fs from 'fs'
@@ -28,7 +28,7 @@ async function main () {
   if (isCancel(tweetCmd)) exitProgram()
 
   if (tweetCmd === 'tweet') {
-    await apiHealth()
+    await apiHealthCheck()
     await login()
     const publishTweet = await text({
       message: colors.blue('Ingresa el cuerpo del Tweet a publicar'),
@@ -67,7 +67,7 @@ async function main () {
     }
   }
   if (tweetCmd === 'tweetInfo') {
-    await apiHealth()
+    await apiHealthCheck()
     const tweetUrl = await text({
       message: colors.blue('Visualiza información pública de un Tweet. (No requiere iniciar sesión)'),
       placeholder: 'Ingresa la url del Tweet 🔗',

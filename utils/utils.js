@@ -151,7 +151,7 @@ const getTweetId = (tweetUrl) => {
   }
 }
 
-export async function apiHealth () {
+export async function apiHealthCheck () {
   try {
     sp.start()
     await fetch(`${API_URL}/api/health`)
