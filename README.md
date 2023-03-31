@@ -7,7 +7,7 @@
 <img src="https://img.shields.io/npm/dw/tweet-cli-v2?style=for-the-badge&logo=npm&color=3dff98&logoColor=D9E0EE&labelColor=302D41"></img>
 <img src="https://img.shields.io/npm/l/tweet-cli?style=for-the-badge&logo=npm&color=ee9999&logoColor=D9E0EE&labelColor=302D41"></img>
 <img src="https://img.shields.io/github/license/EDUJOS/tweet-cli-v2?style=for-the-badge&logo=github&color=ee9999&logoColor=D9E0EE&labelColor=302D41"></img>
-<br>
+<!--<br>-->
 <img src="https://img.shields.io/github/issues/EDUJOS/tweet-cli-v2?style=for-the-badge&logo=bilibili&color=faff69&logoColor=D9E0EE&labelColor=302D41">
 <img src="https://img.shields.io/github/stars/EDUJOS/tweet-cli-v2?style=for-the-badge&logo=starship&color=699bff&logoColor=D9E0EE&labelColor=302D41"></img>
 <!--<img src="https://img.shields.io/github/followers/EDUJOS?style=for-the-badge&logo=github&color=699bff&logoColor=D9E0EE&labelColor=302D41"></img>-->
