@@ -10,7 +10,7 @@
 <br>
 <img src="https://img.shields.io/github/issues/EDUJOS/tweet-cli-v2?style=for-the-badge&logo=bilibili&color=faff69&logoColor=D9E0EE&labelColor=302D41">
 <img src="https://img.shields.io/github/stars/EDUJOS/tweet-cli-v2?style=for-the-badge&logo=starship&color=699bff&logoColor=D9E0EE&labelColor=302D41"></img>
-<img src="https://img.shields.io/github/followers/EDUJOS?style=for-the-badge&logo=github&color=699bff&logoColor=D9E0EE&labelColor=302D41"></img>
+<!--<img src="https://img.shields.io/github/followers/EDUJOS?style=for-the-badge&logo=github&color=699bff&logoColor=D9E0EE&labelColor=302D41"></img>-->
 <a href="https://twitter.com/SoylaPerradeEd" target="_blank">
     <img src="https://img.shields.io/twitter/follow/SoylaPerradeEd?color=%2300acee&labelColor=302D41&label=Follow%20on%20twitter&logo=twitter&style=for-the-badge"></img>
 </a>
