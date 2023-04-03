@@ -8,7 +8,7 @@ src:
   - any: ["src/*.js"]
 
 docs:
-  - any: ["docs/*.md", "/*.md"]
+  - any: ["docs/*.md", "README.md"]
 
 ci:
   - any: [".github/workflows/*.yml"]
