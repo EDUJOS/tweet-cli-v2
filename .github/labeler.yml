@@ -6,3 +6,9 @@ utils:
 
 src:
   - any: ["src/*.js"]
+
+docs:
+  - any: ["docs/*.md"]
+
+ci:
+  - any: [".github/workflows/*.yml"]
