@@ -46,7 +46,7 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-               body: '👋 Hola @' + context.sender.login + '. Muchas gracias por tu aportación con la para **Tweet CLI** nos es de mucha ayuda! Que tengas un buen día✨'
+               body: '👋 Hola @' + context.payload.sender.login + '. Muchas gracias por tu aportación con la para **Tweet CLI** nos es de mucha ayuda! Que tengas un buen día✨'
             })
 
   lint-src:
