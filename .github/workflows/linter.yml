@@ -40,10 +40,10 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: '16'
       
       - name: Install Dependencies
-        run: npm install
+        run: npm ci
 
       - name: check-src-lint
         run: npm run lint-src
@@ -65,10 +65,10 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: '16'
 
       - name: Install Dependencies
-        run: npm install
+        run: npm ci
 
       - name: Check Utils Lint
         run: npm run lint-utils
