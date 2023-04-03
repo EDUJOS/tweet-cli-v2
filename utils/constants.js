@@ -3,7 +3,10 @@ const placeholders = [
   'Do u like big diks?',
   'I\'m feeling blue',
   'Quién pa\' peliculiar?🥵'
-]
+] 
+
+
+
 
 const random = Math.floor(Math.random()*(placeholders.length))
 
