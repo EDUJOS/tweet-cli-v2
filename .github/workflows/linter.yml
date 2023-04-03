@@ -11,6 +11,7 @@ jobs:
       src: ${{ steps.export-changes.outputs.src }}
       utils: ${{ steps.export-changes.outputs.utils }}
       docs: ${{ steps.export-changes.outputs.docs }}
+      sender: ${{ github.event.sender.login }}
 
     steps:
       - uses: actions/checkout@v3
@@ -46,7 +47,7 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-               body: '👋 Hola @' + github.event.sender.login + '. Muchas gracias por tu aportación con la para **Tweet CLI** nos es de mucha ayuda! Que tengas un buen día✨'
+               body: '👋 Hola @' + needs.pre-ci.outputs.sender + '. Muchas gracias por tu aportación con la para **Tweet CLI** nos es de mucha ayuda! Que tengas un buen día✨'
             })
 
   lint-src:
