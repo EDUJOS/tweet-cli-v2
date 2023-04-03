@@ -37,7 +37,10 @@ jobs:
     # if: needs.pre-ci.outputs.docs == 'true'
     steps:
       - name: echo
-        run: echo needs.pre-ci.outputs.docs
+        run: |
+          echo "${{ needs.pre-ci.outputs.docs }}"
+          echo "${{ needs.pre-ci.outputs.src }}"
+          echo "${{ needs.pre-ci.outputs.utils }}"
       # - name: Create comment
       #   uses: actions/github-script@v6
       #   with:
