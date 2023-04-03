@@ -21,7 +21,7 @@ jobs:
               - 'src/*.js'
             be-utils:
               - 'utils/*.js'
-            docs:
+            fe-docs:
               - 'docs/*.md'
 
       - name: Export changes
@@ -29,7 +29,7 @@ jobs:
         run: |
           echo "src=${{ steps.filter.outputs.be-src }}" >> $GITHUB_OUTPUT
           echo "utils=${{ steps.filter.outputs.be-utils }}" >> $GITHUB_OUTPUT
-          echo "docs=${{ steps.filter.outputs.docs }}" >> $GITHUB_OUTPUT
+          echo "docs=${{ steps.filter.outputs.fe-docs }}" >> $GITHUB_OUTPUT
 
   docs:
     needs: [pre-ci]
