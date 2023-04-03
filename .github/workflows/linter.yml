@@ -22,14 +22,31 @@ jobs:
             be-utils:
               - 'utils/*.js'
             fe-docs:
-              - 'docs/**'
+              - 'docs/*.md'
 
       - name: Export changes
         id: export-changes
         run: |
+          echo "docs=${{ steps.filter.outputs.fe-docs }}" >> $GITHUB_OUTPUT
           echo "src=${{ steps.filter.outputs.be-src }}" >> $GITHUB_OUTPUT
           echo "utils=${{ steps.filter.outputs.be-utils }}" >> $GITHUB_OUTPUT
-          echo "docs=${{ steps.filter.outputs.fe-docs }}" >> $GITHUB_OUTPUT
+
+  check-docs:
+    needs: [pre-ci]
+    runs-on: ubuntu-latest
+    if: needs.pre-ci.outputs.docs == 'true'
+    steps:
+      - name: Create comment
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GTCT_SECRET }}
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.pull_request.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+               body: '👋 Hola @' + github.event.sender.login + '. Muchas gracias por tu aportación con la para **Tweet CLI** nos es de mucha ayuda! Que tengas un buen día✨'
+            })
 
   lint-src:
     needs: [pre-ci]
@@ -70,23 +87,6 @@ jobs:
 
       - name: Check Utils Lint
         run: npm run lint-utils
-
-  check-docs:
-    needs: [pre-ci]
-    runs-on: ubuntu-latest
-    if: needs.pre-ci.outputs.docs == 'true'
-    steps:
-      - name: Create comment
-        uses: actions/github-script@v6
-        with:
-          github-token: ${{ secrets.GTCT_SECRET }}
-          script: |
-            github.rest.issues.createComment({
-              issue_number: context.pull_request.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-               body: '👋 Hola @' + github.event.sender.login + '. Muchas gracias por tu aportación con la para **Tweet CLI** nos es de mucha ayuda! Que tengas un buen día✨'
-            })
 
   on-failure:
     permissions: write-all
