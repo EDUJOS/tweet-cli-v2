@@ -25,9 +25,14 @@ async function main () {
     ]
   })
 
-  if (isCancel(tweetCmd)) exitProgram()
+  if(isCancel(tweetCmd)) exitProgram()
 
-  if (tweetCmd === 'tweet') {
+
+
+
+
+
+  if(tweetCmd === 'tweet') {
     await apiHealthCheck()
     await login()
     const publishTweet = await text({
