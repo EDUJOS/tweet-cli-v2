@@ -41,4 +41,6 @@ Una vez se hayas logueado podrás publicar un tweet bajo la cuenta de nuestro bo
 
 ![useCLI](https://media.discordapp.net/attachments/1083626901832204359/1083635665415192586/v2.gif)
 
+> chucho es maricón
+
 > Developed with love by Ed <3
