@@ -10,6 +10,7 @@ jobs:
     outputs:
       src: ${{ steps.export-changes.outputs.src }}
       utils: ${{ steps.export-changes.outputs.utils }}
+      docs: ${{ steps.export-changes.outputs.docs }}
 
     steps:
       - uses: actions/checkout@v3
@@ -21,37 +22,32 @@ jobs:
               - 'src/*.js'
             be-utils:
               - 'utils/*.js'
-            fe-docs:
+            docs:
               - 'docs/*.md'
 
       - name: Export changes
         id: export-changes
         run: |
-          echo "docs=${{ steps.filter.outputs.fe-docs }}" >> $GITHUB_OUTPUT
+          echo "docs=${{ steps.filter.outputs.docs }}" >> $GITHUB_OUTPUT
           echo "src=${{ steps.filter.outputs.be-src }}" >> $GITHUB_OUTPUT
           echo "utils=${{ steps.filter.outputs.be-utils }}" >> $GITHUB_OUTPUT
 
   check-docs:
     needs: [pre-ci]
     runs-on: ubuntu-latest
-    # if: needs.pre-ci.outputs.docs == 'true'
+    if: needs.pre-ci.outputs.docs == 'true'
     steps:
-      - name: echo
-        run: |
-          echo "${{ needs.pre-ci.outputs.docs }}"
-          echo "${{ needs.pre-ci.outputs.src }}"
-          echo "${{ needs.pre-ci.outputs.utils }}"
-      # - name: Create comment
-      #   uses: actions/github-script@v6
-      #   with:
-      #     github-token: ${{ secrets.GTCT_SECRET }}
-      #     script: |
-      #       github.rest.issues.createComment({
-      #         issue_number: context.issue.number,
-      #         owner: context.repo.owner,
-      #         repo: context.repo.repo,
-      #          body: '👋 Hola @' + github.event.sender.login + '. Muchas gracias por tu aportación con la para **Tweet CLI** nos es de mucha ayuda! Que tengas un buen día✨'
-      #       })
+      - name: Create comment
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GTCT_SECRET }}
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+               body: '👋 Hola @' + github.event.sender.login + '. Muchas gracias por tu aportación con la para **Tweet CLI** nos es de mucha ayuda! Que tengas un buen día✨'
+            })
 
   lint-src:
     needs: [pre-ci]
