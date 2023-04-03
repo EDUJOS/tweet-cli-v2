@@ -40,18 +40,13 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: '16'
       
       - name: Install Dependencies
         run: npm ci
 
       - name: check-src-lint
         run: npm run lint-src
-        # uses: github/super-linter@v4
-        # env:
-        #   VALIDATE_ALL_CODEBASE: false
-        #   DEFAULT_BRANCH: master
-        #   GITHUB_TOKEN: ${{ github.token }}
 
   lint-utils:
     needs: [pre-ci]
