@@ -94,7 +94,7 @@ jobs:
   on-success:
     name: on-success
     runs-on: ubuntu-latest
-    needs: [lint-src, lint-utils]
+    needs: [lint-src, lint-utils, check-docs]
     if: ${{ always() && contains(needs.*.result, 'success') && github.ref != 'refs/head/master' }}
     steps:
       - name: Create comment
