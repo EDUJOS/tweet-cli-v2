@@ -20,6 +20,7 @@
 </div>
 
 #  Instalación
+
 <img align="center" src="https://media.discordapp.net/attachments/1083626901832204359/1083633491071221800/v1.gif"></img>
 
 ```
@@ -31,14 +32,44 @@ Para empezar a usar el **Tweet-CLI-V2** lo único que tienes que hacer es ejecua
 edtba
 ```
 
-### Login
+# Login
+
 Primero debes loguearte con el usuario y contraseña que se te han asignado con anterioridad, de lo contrario no podrás usar las funciones del CLI.
 > Nota: Si por alguna razón no se reconoce el comando se recomienta usar `npx edtba`
 
+# Tweet
 
-### Tweet
 Una vez se hayas logueado podrás publicar un tweet bajo la cuenta de nuestro bot [@SoylaPerradeEd](https://twitter.com/SoylaPerradeEd), cabe mencionar que la función para obtener información pública de un tweet no se encuentra disponible por el momento.
 
 ![useCLI](https://media.discordapp.net/attachments/1083626901832204359/1083635665415192586/v2.gif)
+
+
+# Tweet Info
+
+Esta función `Tweet Info` permite obtener información pública de un tweet dado su enlace o URL. Esta herramienta puede ser útil para obtener información sobre un tweet en particular sin tener que acceder a la cuenta de Twitter correspondiente.
+Para utilizar `Tweet Info`, es necesario proporcionar la URL del tweet que se desea analizar. El formato de la URL debe ser el siguiente:
+
+```
+https://twitter.com/{username}/status/{tweet_id}
+```
+![edtba-ti](https://user-images.githubusercontent.com/129718622/229680073-bf29307a-095a-449d-ad0d-85c1f373c441.gif)
+
+
+## Información disponible
+
+La opción `Tweet Info` proporciona la siguiente información pública sobre el tweet:
+
+- Nombre de usuario del autor del tweet.
+- Nombre completo del autor del tweet.
+- Fecha y hora de creación del tweet.
+- Texto del tweet.
+- Número de retweets.
+- Número de tweets citados.
+- Número de Me gusta.
+- Número de respuestas.
+- Número de Vistas del tweet.
+
+Tenga en cuenta que `Tweet Info` solo proporciona información pública del tweet. Si el tweet está protegido o si [@SoylaPerradeEd](https://twitter.com/SoylaPerradeEd) no tiene permiso para ver la cuenta de Twitter del autor del tweet, no podrá ver la información correspondiente.
+
 
 > Developed with love by Ed <3
