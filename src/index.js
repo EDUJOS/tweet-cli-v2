@@ -57,7 +57,7 @@ async function main () {
       const file = require(filePath)
       const token = file.token
       const data = await Tweet(publishTweet, token)
-      if (data.error === 'Token expired' && data.error === 'Token missing or invalid') {
+      if (data.error === 'Token expired' || data.error === 'Token missing or invalid') {
         // console.log(data)
         await tokenExpired()
       } else {
