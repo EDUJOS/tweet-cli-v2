@@ -72,4 +72,4 @@ La opción `Tweet Info` proporciona la siguiente información pública sobre el 
 Tenga en cuenta que `Tweet Info` solo proporciona información pública del tweet. Si el tweet está protegido o si [@SoylaPerradeEd](https://twitter.com/SoylaPerradeEd) no tiene permiso para ver la cuenta de Twitter del autor del tweet, no podrá ver la información correspondiente.
 
 
-> Developed with love by Ed <3
+> Developed with love by Ed <3 chupalo
