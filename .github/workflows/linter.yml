@@ -24,6 +24,7 @@ jobs:
               - 'utils/*.js'
             docs:
               - 'docs/*.md'
+              - '/*.md'
 
       - name: Export changes
         id: export-changes
