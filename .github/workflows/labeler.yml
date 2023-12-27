@@ -1,6 +1,6 @@
 name: "Pull Request Labeler"
 on:
-- pull_request_target
+  - pull_request_target
   # pull_request_target:
   #   branches: [master]
   # workflow_run:
@@ -16,4 +16,4 @@ jobs:
     steps:
     - uses: actions/labeler@v4
       with:
-        repo-token: ${{ secrets.GTCT_SECRET }}
+        repo-token: ${{ secrets.Z_GITHUB_API }}
