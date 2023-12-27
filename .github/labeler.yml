@@ -12,3 +12,6 @@ docs:
 
 ci:
   - any: [".github/*.yml", ".github/workflows/*.yml"]
+
+locales:
+  - any: ["locales/*.json"]
