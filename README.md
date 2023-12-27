@@ -35,7 +35,8 @@ edtba
 # Login
 
 Primero debes loguearte con el usuario y contraseña que se te han asignado con anterioridad, de lo contrario no podrás usar las funciones del CLI.
-> Nota: Si por alguna razón no se reconoce el comando se recomienta usar `npx edtba`
+> [!NOTE]
+> Si por alguna razón no se reconoce el comando se recomienta usar `npx edtba`
 
 # Tweet
 
@@ -71,5 +72,6 @@ La opción `Tweet Info` proporciona la siguiente información pública sobre el 
 
 Tenga en cuenta que `Tweet Info` solo proporciona información pública del tweet. Si el tweet está protegido o si [@SoylaPerradeEd](https://twitter.com/SoylaPerradeEd) no tiene permiso para ver la cuenta de Twitter del autor del tweet, no podrá ver la información correspondiente.
 
+<kbd>ALT + A</kbd>
 
 > Developed with love by Ed <3
