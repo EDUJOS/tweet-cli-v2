@@ -7,6 +7,8 @@ import { RANDOM_PLACEHOLDER } from '../utils/constants.js'
 import path from 'path'
 import fs from 'fs'
 import { fileURLToPath } from 'url'
+import { createRequire } from 'module'
+const require = createRequire(import.meta.url)
 const __dirname = fileURLToPath(new URL('.', import.meta.url))
 
 import { i18n, language } from '../utils/i18n.config.js'
