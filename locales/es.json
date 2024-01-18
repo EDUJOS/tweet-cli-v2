@@ -18,7 +18,7 @@
         "password": "Ingresa tu contraseña aquí 👀",
         "stringErr": "Lo siento, no puedes enviar un string vacío",
         "loading": "Iniciando sesión",
-        "invalid": "Ups... Parece que tus credenciales son inválidas.\nIntenta ejecutar: {command} para intentarlo una vez más!",
+        "invalid": "Ups... Parece que tus credenciales son inválidas.\nIntenta ejecutar: {{command}} para intentarlo una vez más!",
         "success": "👋Bienvenido de vuelta,"
     },
     "session": {
@@ -37,7 +37,7 @@
         "max": "Asegúrate de no ingresar más de 100 caracteres",
         "min": "Asegúrate de ingresar al menos más de 2 caracteres",
         "confirm": "Estás seguro del tweet:",
-        "success": "Tu Tweet se ha publicado con éxito, puedes verlo en la cuenta de: {user}"
+        "success": "Tu Tweet se ha publicado con éxito, puedes verlo en la cuenta de: {{user}}"
     },
     "tweetInfo": {
         "title": "Visualiza información pública de un Tweet. (No requiere iniciar sesión)",
@@ -46,7 +46,7 @@
         "loading": "Obteniendo información",
         "success": "Tweet recuperado con éxito",
         "failed": "Vaya! Parece que el Tweet del que quieres obtener información fue eliminado.",
-        "infoTitle": "El Tweet de {username} se ha recuperado con éxito"
+        "infoTitle": "El Tweet de {{username}} se ha recuperado con éxito"
     },
     "configOptions": {
         "lang": "Idioma"

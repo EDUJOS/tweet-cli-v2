@@ -18,7 +18,7 @@
 		"password": "Enter password 👀",
 		"stringErr": "Sorry, you can't send an empty string",
 		"loading": "Logging in",
-		"invalid": "Whops... Looks like your credentials are not valid.\nTry executing: {command} to try again!",
+		"invalid": "Whops... Looks like your credentials are not valid.\nTry executing: {{command}} to try again!",
 		"success": "👋Welcome back,"
 	},
 	"session": {
@@ -37,7 +37,7 @@
 		"max": "Make sure not to exceed 100 characters",
 		"min": "At least write 2 characters",
 		"confirm": "Are you sure of the tweet:",
-		"success": "Your tweet has been successfully published, you can look it on: {user}'account"
+		"success": "Your tweet has been successfully published, you can look it on: {{user}}'account"
 	},
 	"tweetInfo": {
 		"title": "Visualize public information on a tweet. (Doesn't require to log in)",
@@ -46,7 +46,7 @@
 		"loading": "Obtaining information",
 		"success": "Tweet recovered succesfully",
 		"failed": "Whoa, looks like this tweet has been deleted",
-		"infoTitle": "{username}'s Tweet has been successfully recovered"
+		"infoTitle": "{{username}}'s Tweet has been successfully recovered"
 	},
 	"configOptions": {
 		"lang": "Language"
