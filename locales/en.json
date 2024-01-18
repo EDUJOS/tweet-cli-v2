@@ -1,49 +1,52 @@
 {
-    "utilities":{
-        "mainTitle": "What to do?",
-        "tweet": "Post a Tweet",
-        "tweetInfo": "Get info on a Tweet",
-        "lang": "Change the default language of the CLI",
-        "loading": "Processing your request",
-        "unavailable": "Apologies, this function is unavailable for the moment"
-    },
-    "login": {
-        "title": "Seems like you have not logged in or your seesion has expired, please log in... 🍟",
-        "username": "Username 👀",
-        "passTitle": "Password 🔐",
-        "password": "Enter password 👀",
-        "stringErr": "Sorry, you can't send an empty string",
-        "loading": "Logging in",
-        "invalid": "Whops... Looks like your credentials are not valid.\nTry executing: {command} to try again!",
-        "success": "{usernameCmd}✨ Welcome back 👋"
-    },
-    "credentials": {
-        "loading": "Saving credentials 📩",
-        "success": "Your credentials have been successfully saved",
-        "failed": "It was impossible to save credentials due to an unexpected error..."
-    },
-    "tweet": {
-        "title": "Write tweet to be published",
-        "max": "Make sure not to exceed 100 characters",
-        "min": "At least write 2 characters",
-        "confirm": "Are you sure of the tweet:",
-        "success": "Your tweet has been successfully published, you can look it on: {user}'account"
-    },
-    "tweetInfo": {
-        "title": "Visualize public information on a tweet. (Doesn't require to log in)",
-        "url": "Enter the tweet url 🔗",
-        "invalid": "Url is invalid",
-        "loading": "Obtaining information",
-        "success": "Tweet recovered succesfully",
-        "failed": "Whoa, looks like this tweet has been deleted"
-    },
-   "configOptions": {
-        "lang": "Language"
-    },
-"langConfig": {
-        "title": "Select preferred language:",
-        "en": "English",
-        "es": "Spanish",
-        "save": "You have changed the CLI default language to English!"
-    }
+	"utilities": {
+		"mainTitle": "What to do?",
+		"tweet": "Post a Tweet",
+		"tweetInfo": "Get info on a Tweet",
+		"lang": "Change the default language of the CLI",
+		"loading": "Processing your request",
+		"unavailable": "Apologies, this function is unavailable for the moment",
+		"url": "Url required",
+		"config": "Settings",
+		"configLabel": "List of options"
+	},
+	"login": {
+		"title": "Seems like you have not logged in or your seesion has expired, please log in... 🍟",
+		"username": "Username 👀",
+		"passTitle": "Password 🔐",
+		"password": "Enter password 👀",
+		"stringErr": "Sorry, you can't send an empty string",
+		"loading": "Logging in",
+		"invalid": "Whops... Looks like your credentials are not valid.\nTry executing: {command} to try again!",
+		"success": "{usernameCmd}✨ Welcome back 👋"
+	},
+	"credentials": {
+		"loading": "Saving credentials 📩",
+		"success": "Your credentials have been successfully saved",
+		"failed": "It was impossible to save credentials due to an unexpected error..."
+	},
+	"tweet": {
+		"title": "Write tweet to be published",
+		"max": "Make sure not to exceed 100 characters",
+		"min": "At least write 2 characters",
+		"confirm": "Are you sure of the tweet:",
+		"success": "Your tweet has been successfully published, you can look it on: {user}'account"
+	},
+	"tweetInfo": {
+		"title": "Visualize public information on a tweet. (Doesn't require to log in)",
+		"url": "Enter the tweet url 🔗",
+		"invalid": "Url is invalid",
+		"loading": "Obtaining information",
+		"success": "Tweet recovered succesfully",
+		"failed": "Whoa, looks like this tweet has been deleted"
+	},
+	"configOptions": {
+		"lang": "Language"
+	},
+	"langConfig": {
+		"title": "Select preferred language:",
+		"en": "English",
+		"es": "Spanish",
+		"save": "Haz cambiado el idioma predeterminado de Tweet CLI a Español!"
+	}
 }

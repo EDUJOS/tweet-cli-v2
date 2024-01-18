@@ -5,7 +5,10 @@
         "tweetInfo": "Obtener información de un Tweet",
         "lang": "Cambia el idioma predeterminado del CLI",
         "loading": "Procesando tu solicitud",
-        "unavailable": "Lo siento, esta función no está diponible por el momento."
+        "unavailable": "Lo siento, esta función no está diponible por el momento.",
+        "url": "Url requerida",
+        "config": "Configuración",
+        "configLabel": "Lista de opciones"
     },
     "login": {
         "title": "Parece que no te has logeado o tu sesión ha expirado, por favor inicia sesión... 🍟",
@@ -37,8 +40,13 @@
         "success": "Tweet recuperado con éxito",
         "failed": "Vaya! Parece que el Tweet del que quieres obtener información fue eliminado."
     },
-    "lang-config": {
+    "configOptions": {
+        "lang": "Idioma"
+    },
+    "langConfig": {
         "title": "Selecciona tu idioma de preferencia:",
-        "lang": "Español"
+        "en": "Inglés",
+        "es": "Español",
+        "save": "You have changed the CLI default language to English!"
     }
 }
