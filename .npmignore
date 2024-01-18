@@ -1,3 +1,7 @@
 .github/
 node_modules/
 pruebas/
+cli-config/credentials
+pnpm-lock.yaml
+.github
+.eslintrc.cjs
