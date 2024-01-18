@@ -1,6 +1,7 @@
 /node_modules
 /pruebas
 /cli-config/credentials
+/cli-config/lang.json
 pnpm-lock.yaml
 package-lock.
 /.vscode
