@@ -6,13 +6,12 @@ import boxen from 'boxen'
 import path from 'path'
 import fs from 'fs'
 import { fileURLToPath } from 'url'
-
+import { i18n, language } from '../utils/i18n.config.js'
 import { createRequire } from 'module'
 import { API_URL } from './constants.js'
 const __dirname = fileURLToPath(new URL('.', import.meta.url))
 const require = createRequire(import.meta.url)
 const pkg = require('../package.json')
-import { i18n, language } from '../src/index.js'
 
 const infoMsg = `${colors.magenta(mainSymbols.pointer)} ${colors.yellow('Tweet CLI V2 Version:')} ${colors.blue(pkg.version)}\n\n${colors.magenta(mainSymbols.pointer)} ${colors.yellow('Click here for additional information:')} ${colors.blue('https://github.com/EDUJOS/tweet-cli-v2')}`
 const sp = spinner()
@@ -32,18 +31,16 @@ export function exitProgram ({ code = 0, message = `${mainSymbols.cross} ${i18n.
   process.exit(code)
 }
 
-export const Tweet = async (body, token) => {
+export const Tweet = async (body, token, poll = null) => {
   try {
-    const TweetBody = {
-      TweetBody: body
-    }
-    // Api status: Off
+    const TweetBody = { TweetBody: body, poll: poll }
+    // Api status: On
     const results = await fetch(`${API_URL}/api/singletweet`, {
       method: 'POST',
       body: JSON.stringify(TweetBody),
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`
+        'Authorization': `Bearer ${token}`
       }
     })
     const data = await results.json()

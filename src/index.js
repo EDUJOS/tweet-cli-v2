@@ -7,36 +7,9 @@ import { RANDOM_PLACEHOLDER } from '../utils/constants.js'
 import path from 'path'
 import fs from 'fs'
 import { fileURLToPath } from 'url'
-import { createRequire } from 'module'
-const require = createRequire(import.meta.url)
 const __dirname = fileURLToPath(new URL('.', import.meta.url))
-const langFile = require('../cli-config/lang.json')
-const language = langFile.cli_lang
 
-const { I18n } = require('i18n')
-const i18n = new I18n()
-
-i18n.configure({
-  locales: ['es', 'en'],
-  directory: path.join(__dirname, '../locales'),
-  defaultLocale: 'en',
-  retryInDefaultLocale: true,
-  objectNotation: true,
-  register: global,
-  logWarnFn: function (msg) {
-    console.log('ALERTA' + msg)
-  },
-  LogErrorFn: function (msg) {
-    console.log('Error' + msg)
-  },
-  missingKeyFn: function (locate, value) {
-    return value
-  },
-  mustacheConfig: {
-    tags: ['{{', '}}'],
-    disable: false
-  }
-})
+import { i18n, language } from '../utils/i18n.config.js'
 
 const sp = spinner()
 
@@ -85,27 +58,34 @@ async function main () {
       const file = require(filePath)
       const token = file.token
       const data = await Tweet(publishTweet, token)
-      if (data.error === 'Token expired' || data.error === 'Token missing or invalid') {
-        // console.log(data)
-        await tokenExpired()
-      } else {
-        sp.stop(colors.green(i18n.__({ phrase: 'tweet.success', locale: language }, { user: colors.yellow('@SoylaPerradeEd') })))
-        outro(`${colors.bold(colors.magenta('Tweet Body:'))} ${colors.italic(colors.blue(data.tweetBody))}\n   ${colors.bold(colors.magenta('Tweet Url:'))} ${colors.blue(data.url)}`)
+      if (data) {
+        if (data.error === 'Token expired' || data.error === 'Token missing or invalid') {
+          // console.log(data)
+          await tokenExpired()
+        } else {
+          sp.stop(colors.green(i18n.__({ phrase: 'tweet.success', locale: language }, { user: colors.yellow('@SoylaPerradeEd') })))
+          outro(`${colors.bold(colors.magenta('Tweet Body:'))} ${colors.italic(colors.blue(data.tweetBody))}\n   ${colors.bold(colors.magenta('Tweet Url:'))} ${colors.blue(data.url)}`)
+          process.exit(0)
+        }
       }
+      outro(colors.bgYellow(i18n.__({ phrase: 'globalErrors.unexpected', locale: language })))
+      process.exit(1)
     }
   }
   if (tweetCmd === 'tweetInfo') {
-    await apiHealthCheck()
-    const tweetUrl = await text({
-      message: colors.blue(i18n.__({ phrase: 'tweetInfo.title', locale: language })),
-      placeholder: i18n.__({ phrase: 'tweetInfo.url', locale: language }),
-      validate (value) {
-        if (value.length > 200) return `${colors.red(`${mainSymbols.cross} ` + i18n.__({ phrase: 'tweet.max' , locale: language }))}`
-        if (value.length === 0) return `${colors.red(`${mainSymbols.cross} ` + i18n.__({ phrase: 'tweet.min' , locale: language }))}`
-      }
-    })
-    if (isCancel(tweetUrl)) exitProgram()
-    await tweetInfo(tweetUrl)
+    outro(colors.bgMagenta(i18n.__({ phrase: 'utilities.unavailable', locale: language })))
+    process.exit(0)
+    // await apiHealthCheck()
+    // const tweetUrl = await text({
+    //   message: colors.blue(i18n.__({ phrase: 'tweetInfo.title', locale: language })),
+    //   placeholder: i18n.__({ phrase: 'tweetInfo.url', locale: language }),
+    //   validate (value) {
+    //     if (value.length > 200) return `${colors.red(`${mainSymbols.cross} ` + i18n.__({ phrase: 'tweet.max' , locale: language }))}`
+    //     if (value.length === 0) return `${colors.red(`${mainSymbols.cross} ` + i18n.__({ phrase: 'tweet.min' , locale: language }))}`
+    //   }
+    // })
+    // if (isCancel(tweetUrl)) exitProgram()
+    // await tweetInfo(tweetUrl)
   }
   if (tweetCmd === 'config') {
     const configInput = await select({
@@ -184,5 +164,3 @@ const tokenExpired = async () => {
 }
 
 main().catch(console.error)
-
-export { i18n, language }
