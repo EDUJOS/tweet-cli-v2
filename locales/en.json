@@ -37,7 +37,7 @@
 		"max": "Make sure not to exceed 100 characters",
 		"min": "At least write 2 characters",
 		"confirm": "Are you sure of the tweet:",
-		"success": "Your tweet has been successfully published, you can look it on: {{user}}'account"
+		"success": "Your tweet has been successfully published, you can look it on: {{user}}'s account"
 	},
 	"tweetInfo": {
 		"title": "Visualize public information on a tweet. (Doesn't require to log in)",
