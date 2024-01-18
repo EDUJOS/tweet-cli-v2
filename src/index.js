@@ -46,7 +46,8 @@ async function main () {
     message: colors.blue('¿Que quieres hacer?'),
     options: [
       { value: 'tweet', label: 'Publicar un Tweet' },
-      { value: 'tweetInfo', label: 'Obtener información de un Tweet', hint: 'Url required' }
+      { value: 'tweetInfo', label: 'Obtener información de un Tweet', hint: 'Url required' },
+      { value: 'config', label: 'Configuración', hint: 'Lista de opciones' }
     ]
   })
 
@@ -103,6 +104,10 @@ async function main () {
     })
     if (isCancel(tweetUrl)) exitProgram()
     await tweetInfo(tweetUrl)
+  }
+  if (tweetCmd === 'config') {
+    outro(colors.green('Adios!'))
+    process.exit(0)
   }
 }
 
