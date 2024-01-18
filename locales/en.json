@@ -38,6 +38,7 @@
         "failed": "Vaya! Parece que el Tweet del que quieres obtener información fue eliminado."
     },
     "lang-config": {
-        "title": "Selecciona tu idioma de preferencia:"
+        "title": "Selecciona tu idioma de preferencia:",
+        "lang": "Español"
     }
 }
