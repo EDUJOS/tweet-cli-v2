@@ -60,16 +60,16 @@ async function main () {
       const file = require(filePath)
       const token = file.token
       const data = await Tweet(publishTweet, token)
-      if (data) {
-        if (data.error === 'Token expired' || data.error === 'Token missing or invalid') {
-          // console.log(data)
-          await tokenExpired()
-        } else {
-          sp.stop(colors.green(i18n.__({ phrase: 'tweet.success', locale: language }, { user: colors.yellow('@SoylaPerradeEd') })))
-          outro(`${colors.bold(colors.magenta('Tweet Body:'))} ${colors.italic(colors.blue(data.tweetBody))}\n   ${colors.bold(colors.magenta('Tweet Url:'))} ${colors.blue(data.url)}`)
-          process.exit(0)
-        }
+      // if (data) {
+      if (data.error === 'Token expired' || data.error === 'Token missing or invalid') {
+        // console.log(data)
+        await tokenExpired()
+      } else {
+        sp.stop(colors.green(i18n.__({ phrase: 'tweet.success', locale: language }, { user: colors.yellow('@SoylaPerradeEd') })))
+        outro(`${colors.bold(colors.magenta('Tweet Body:'))} ${colors.italic(colors.blue(data.tweetBody))}\n   ${colors.bold(colors.magenta('Tweet Url:'))} ${colors.blue(data.url)}`)
+        process.exit(0)
       }
+      // }
       outro(colors.bgYellow(i18n.__({ phrase: 'globalErrors.unexpected', locale: language })))
       process.exit(1)
     }
