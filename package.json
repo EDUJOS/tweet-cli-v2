@@ -1,6 +1,6 @@
 {
   "name": "tweet-cli-v2",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Tweet CLI V2",
   "main": "index.js",
   "engines": {
