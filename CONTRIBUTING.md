@@ -14,7 +14,8 @@ Antes de enviar cualquier pull request, asegúrate de seguir estas pautas:
 ## Linter
 
 - Asegúrate de que tu código sigue el estándar de lint especificado para el proyecto. Puedes encontrar las reglas en el archivo [`.eslintrc.cjs`](https://github.com/EDUJOS/tweet-cli-v2/blob/master/.eslintrc.cjs) o en el archivo `README.md`.
-    ```js
+
+```js
 module.exports = {
   'env': {
     'browser': false,
@@ -66,7 +67,7 @@ module.exports = {
     ]
   }
 }
-    ```
+```
 
 - Ejecuta las pruebas unitarias del proyecto para asegurarte de que tu contribución no rompa la funcionalidad existente. 
 

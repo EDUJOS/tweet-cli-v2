@@ -101,7 +101,7 @@ jobs:
       - name: Create comment
         uses: actions/github-script@v6
         with:
-          github-token: ${{ secrets.GTCT_SECRET }}
+          github-token: ${{ secrets.Z_GITHUB_API }}
           script: |
             github.rest.issues.createComment({
               issue_number: context.issue.number,

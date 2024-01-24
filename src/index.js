@@ -11,6 +11,8 @@ import { createRequire } from 'module'
 const require = createRequire(import.meta.url)
 const __dirname = fileURLToPath(new URL('.', import.meta.url))
 
+import { i18n, language } from '../utils/i18n.config.js'
+
 const sp = spinner()
 
 async function main () {
@@ -18,10 +20,11 @@ async function main () {
 
   intro(`\n${info}`)
   const tweetCmd = await select({
-    message: colors.blue('¿Que quieres hacer?'),
+    message: colors.blue(i18n.__({ phrase: 'utilities.mainTitle', locale: language })),
     options: [
-      { value: 'tweet', label: 'Publicar un Tweet' },
-      { value: 'tweetInfo', label: 'Obtener información de un Tweet', hint: 'Url required' }
+      { value: 'tweet', label: i18n.__({ phrase: 'utilities.tweet', locale: language }) },
+      { value: 'tweetInfo', label: i18n.__({ phrase: 'utilities.tweetInfo', locale: language }), hint: i18n.__({ phrase: 'utilities.url', locale: language }) },
+      { value: 'config', label: i18n.__({ phrase: 'utilities.config', locale: language }), hint: i18n.__({ phrase: 'utilities.configLabel', locale: language }) }
     ]
   })
 
@@ -31,11 +34,11 @@ async function main () {
     await apiHealthCheck()
     await login()
     const publishTweet = await text({
-      message: colors.blue('Ingresa el cuerpo del Tweet a publicar'),
+      message: colors.blue(i18n.__({ phrase: 'tweet.title' , locale: language })),
       placeholder: RANDOM_PLACEHOLDER,
       validate (value) {
-        if (value.length > 200) return `${colors.red(`${mainSymbols.cross} Asegúrate de no ingresar más de 100 caracteres`)}`
-        if (value.length === 0) return `${colors.red(`${mainSymbols.cross} Uhmm, asegúrate de ingresar al menos más de 2 caracteres`)}`
+        if (value.length > 200) return `${colors.red(`${mainSymbols.cross} ` + i18n.__({ phrase: 'tweet.max' , locale: language }))}`
+        if (value.length === 0) return `${colors.red(`${mainSymbols.cross} ` + i18n.__({ phrase: 'tweet.min' , locale: language }))}`
       }
     })
 
@@ -43,7 +46,7 @@ async function main () {
 
     const tweetConf = await confirm({
       initialValue: true,
-      message: `${colors.blue('Estás seguro del tweet:')} ${colors.yellow(publishTweet)}`
+      message: `${colors.blue(i18n.__({ phrase: 'tweet.confirm' , locale: language }))} ${colors.yellow(publishTweet)}`
     })
 
     if (isCancel(tweetConf)) exitProgram()
@@ -51,33 +54,74 @@ async function main () {
     if (tweetConf === false) {
       exitProgram()
     } else {
-      sp.start(`${colors.yellow('Procesando tu solicitud')}`)
+      sp.start(`${colors.yellow(i18n.__({ phrase: 'utilities.loading' , locale: language }))}`)
       const ruta = path.join(__dirname, '.././cli-config/credentials')
       const filePath = path.join(ruta, 'user.json')
       const file = require(filePath)
       const token = file.token
       const data = await Tweet(publishTweet, token)
+      // if (data) {
       if (data.error === 'Token expired' || data.error === 'Token missing or invalid') {
         // console.log(data)
         await tokenExpired()
       } else {
-        sp.stop(`${colors.green('Tu Tweet se ha publicado con éxito, puedes verlo en la cuenta de:')} ${colors.yellow('@SoylaPerradeEd')}`)
+        sp.stop(colors.green(i18n.__({ phrase: 'tweet.success', locale: language }, { user: colors.yellow('@SoylaPerradeEd') })))
         outro(`${colors.bold(colors.magenta('Tweet Body:'))} ${colors.italic(colors.blue(data.tweetBody))}\n   ${colors.bold(colors.magenta('Tweet Url:'))} ${colors.blue(data.url)}`)
+        process.exit(0)
       }
+      // }
+      outro(colors.bgYellow(i18n.__({ phrase: 'globalErrors.unexpected', locale: language })))
+      process.exit(1)
     }
   }
   if (tweetCmd === 'tweetInfo') {
-    await apiHealthCheck()
-    const tweetUrl = await text({
-      message: colors.blue('Visualiza información pública de un Tweet. (No requiere iniciar sesión)'),
-      placeholder: 'Ingresa la url del Tweet 🔗',
-      validate (value) {
-        if (value.length > 200) return `${colors.red(`${mainSymbols.cross} Asegúrate de no ingresar más de 100 caracteres`)}`
-        if (value.length === 0) return `${colors.red(`${mainSymbols.cross} Uhmm, asegúrate de ingresar al menos más de 2 caracteres`)}`
-      }
+    outro(colors.bgMagenta(i18n.__({ phrase: 'utilities.unavailable', locale: language })))
+    process.exit(0)
+    // await apiHealthCheck()
+    // const tweetUrl = await text({
+    //   message: colors.blue(i18n.__({ phrase: 'tweetInfo.title', locale: language })),
+    //   placeholder: i18n.__({ phrase: 'tweetInfo.url', locale: language }),
+    //   validate (value) {
+    //     if (value.length > 200) return `${colors.red(`${mainSymbols.cross} ` + i18n.__({ phrase: 'tweet.max' , locale: language }))}`
+    //     if (value.length === 0) return `${colors.red(`${mainSymbols.cross} ` + i18n.__({ phrase: 'tweet.min' , locale: language }))}`
+    //   }
+    // })
+    // if (isCancel(tweetUrl)) exitProgram()
+    // await tweetInfo(tweetUrl)
+  }
+  if (tweetCmd === 'config') {
+    const configInput = await select({
+      message: colors.blue(i18n.__({ phrase: 'utilities.configLabel', locale: language })),
+      options: [
+        { value: 'lang', label: i18n.__({ phrase: 'configOptions.lang', locale: language }) }
+      ]
     })
-    if (isCancel(tweetUrl)) exitProgram()
-    await tweetInfo(tweetUrl)
+
+    if (configInput === 'lang') {
+      const langInput = await select({
+        message: colors.blue(i18n.__({ phrase: 'langConfig.title', locale: language })),
+        options: [
+          { value: 'en', label: i18n.__({ phrase: 'langConfig.en', locale: language }) },
+          { value: 'es', label: i18n.__({ phrase: 'langConfig.es', locale: language }) }
+        ]
+      })
+      if (isCancel(langInput)) {
+        exitProgram()
+      }
+      else if (langInput) {
+        const langFileConfig = {
+          cli_lang: langInput
+        }
+        try {
+          fs.writeFileSync(path.join(__dirname, '../cli-config/lang.json'), JSON.stringify(langFileConfig, null, '\t'))
+          outro(colors.green(i18n.__({ phrase: 'langConfig.save', locale: language })))
+          process.exit(0)
+        } catch (error) {
+          outro(colors.red(i18n.__({ phrase: 'globalErrors.unexpected', locale: language })))
+          process.exit(1)
+        }
+      }
+    }
   }
 }
 
@@ -85,29 +129,29 @@ const tokenExpired = async () => {
   const ruta = path.join(__dirname, '.././cli-config/credentials')
   const filePath = path.join(ruta, 'user.json')
   const file = require(filePath)
-  sp.stop(`${colors.red('Vaya, parece que tu sesión ha caducado')}😭`)
+  sp.stop(`${colors.red(i18n.__({ phrase: 'session.timedOut', locale: language }))}😭`)
   const user = await text({
-    message: 'Vuelve a iniciar sesión 😴',
-    placeholder: 'Ingresa tu nombre de usuario aquí 👀',
+    message: i18n.__({ phrase: 'session.again', locale: language }),
+    placeholder: i18n.__({ phrase: 'login.password', locale: language }),
     validate (value) {
-      if (value === 0) return `${colors.yellow(`${mainSymbols.cross} Lo siento, no puedes enviar un string vacío!`)}`
+      if (value === 0) return `${colors.yellow(`${mainSymbols.cross} ${i18n.__({ phrase: 'login.stringErr', locale: language })}`)}`
     }
   })
   const pass = await text({
-    message: 'Vuelve a iniciar sesión 😴',
-    placeholder: 'Ingresa tu contraseña aquí 👀',
+    message: i18n.__({ phrase: 'session.again', locale: language }),
+    placeholder: i18n.__({ phrase: 'login.password', locale: language }),
     validate (value) {
-      if (value === 0) return `${colors.yellow(`${mainSymbols.cross} Lo siento, no puedes enviar un string vacío!`)}`
+      if (value === 0) return `${colors.yellow(`${mainSymbols.cross} ${i18n.__({ phrase: 'login.stringErr', locale: language })}`)}`
     }
   })
-  sp.start(colors.yellow('Actualizando tus datos'))
+  sp.start(colors.yellow(i18n.__({ phrase: 'credentials.update', locale: language })))
   const userBody = {
     username: user,
     password: pass
   }
   const tokenData = await getToken(userBody)
   if (tokenData.error === 'Invalid user or password') {
-    sp.stop(`${colors.red(`${mainSymbols.cross} Ups... Parece que tus credenciales son inválidas. Intenta ejecutar:`)} ${colors.yellow(`edtba ${mainSymbols.arrowRight} npx edtba`)} ${colors.red('para intentarlo una vez más!')} 😅`)
+    sp.stop(`${colors.red(`${mainSymbols.cross}`)} ${colors.yellow(i18n.__({ phrase: 'login.invalid', locale: language }, { command: `${colors.magenta(`edtba ${mainSymbols.arrowRight} npx edtba`)}` }))} 😅`)
     exitProgram()
   } else {
     const UserCredentials = {
@@ -117,7 +161,7 @@ const tokenExpired = async () => {
     }
     fs.writeFileSync(filePath, JSON.stringify(UserCredentials, null, '\t'))
     sp.stop(`${colors.green(mainSymbols.tick)}`)
-    outro(`${colors.magenta('Tus credenciales han sido actualizadas con éxito')}🔐`)
+    outro(`${colors.magenta(i18n.__({ phrase: 'credentials.updateSuccess', locale: language }))}🔐`)
   }
 }
 

@@ -1,11 +1,15 @@
 {
-    "utilities":{
+    "utilities": {
         "mainTitle": "¿Que quieres hacer?",
         "tweet": "Publicar un Tweet",
         "tweetInfo": "Obtener información de un Tweet",
         "lang": "Cambia el idioma predeterminado del CLI",
         "loading": "Procesando tu solicitud",
-        "unavailable": "Lo siento, esta función no está diponible por el momento."
+        "unavailable": "Lo siento, esta función no está diponible por el momento.",
+        "isCancel": "Vaya, parece que eres un completo estúpido",
+        "url": "Url requerida",
+        "config": "Configuración",
+        "configLabel": "Lista de opciones"
     },
     "login": {
         "title": "Parece que no te has logeado o tu sesión ha expirado, por favor inicia sesión... 🍟",
@@ -14,20 +18,26 @@
         "password": "Ingresa tu contraseña aquí 👀",
         "stringErr": "Lo siento, no puedes enviar un string vacío",
         "loading": "Iniciando sesión",
-        "invalid": "Ups... Parece que tus credenciales son inválidas.\nIntenta ejecutar: {command} para intentarlo una vez más!",
-        "success": "{usernameCmd}✨ Bienvenido de vuelta 👋"
+        "invalid": "Ups... Parece que tus credenciales son inválidas.\nIntenta ejecutar: {{command}} para intentarlo una vez más!",
+        "success": "👋Bienvenido de vuelta,"
+    },
+    "session": {
+        "timedOut": "Vaya, parece que tu sesión ha caducado",
+        "again": "Vuelve a iniciar sesión 😴"
     },
     "credentials": {
         "loading": "Guardando credenciales 📩",
         "success": "Tus credenciales han sido guardadas con éxito",
-        "failed": "Vaya, fue imposible guardar tus credenciales debido a un error inesperado..."
+        "failed": "Vaya, fue imposible guardar tus credenciales debido a un error inesperado...",
+        "update": "Actualizando tus datos",
+        "updateSuccess": "Tus credenciales han sido actualizadas con éxito"
     },
     "tweet": {
         "title": "Ingresa el cuerpo del Tweet a publicar",
         "max": "Asegúrate de no ingresar más de 100 caracteres",
         "min": "Asegúrate de ingresar al menos más de 2 caracteres",
         "confirm": "Estás seguro del tweet:",
-        "success": "Tu Tweet se ha publicado con éxito, puedes verlo en la cuenta de: {user}"
+        "success": "Tu Tweet se ha publicado con éxito, puedes verlo en la cuenta de: {{user}}"
     },
     "tweetInfo": {
         "title": "Visualiza información pública de un Tweet. (No requiere iniciar sesión)",
@@ -35,12 +45,22 @@
         "invalid": "La url es inválida",
         "loading": "Obteniendo información",
         "success": "Tweet recuperado con éxito",
-        "failed": "Vaya! Parece que el Tweet del que quieres obtener información fue eliminado."
+        "failed": "Vaya! Parece que el Tweet del que quieres obtener información fue eliminado.",
+        "infoTitle": "El Tweet de {{username}} se ha recuperado con éxito"
     },
-    "lang-config": {
-        "title": "Selecciona tu idioma de preferencia:"
+    "configOptions": {
+        "lang": "Idioma"
     },
-    "asds": {
-        "title": "Chupalo"
+    "langConfig": {
+        "title": "Selecciona tu idioma de preferencia:",
+        "en": "Inglés",
+        "es": "Español",
+        "save": "You have changed the CLI default language to English!"
+    },
+    "api": {
+        "fall": "Vaya! Parece que la API está caída :("
+    },
+    "globalErrors": {
+        "unexpected": "Lo siento ha ocurrido un error inesperado"
     }
 }

@@ -1,43 +1,66 @@
 {
-    "utilities":{
-        "mainTitle": "¿Que quieres hacer?",
-        "tweet": "Publicar un Tweet",
-        "tweetInfo": "Obtener información de un Tweet",
-        "lang": "Cambia el idioma predeterminado del CLI",
-        "loading": "Procesando tu solicitud",
-        "unavailable": "Lo siento, esta función no está diponible por el momento."
+	"utilities": {
+		"mainTitle": "What to do?",
+		"tweet": "Post a Tweet",
+		"tweetInfo": "Get info on a Tweet",
+		"lang": "Change the default language of the CLI",
+		"loading": "Processing your request",
+		"unavailable": "Apologies, this function is unavailable for the moment",
+		"isCancel": "Wow, it seems like you're a complete idiot.",
+		"url": "Url required",
+		"config": "Settings",
+		"configLabel": "Options List"
+	},
+	"login": {
+		"title": "Seems like you have not logged in or your seesion has expired, please log in... 🍟",
+		"username": "Username 👀",
+		"passTitle": "Password 🔐",
+		"password": "Enter password 👀",
+		"stringErr": "Sorry, you can't send an empty string",
+		"loading": "Logging in",
+		"invalid": "Whops... Looks like your credentials are not valid.\nTry executing: {{command}} to try again!",
+		"success": "👋Welcome back,"
+	},
+	"session": {
+        "timedOut": "Oops, it looks like your session has expired",
+        "again": "Please log in again 😴"
     },
-    "login": {
-        "title": "Parece que no te has logeado o tu sesión ha expirado, por favor inicia sesión... 🍟",
-        "username": "Ingresa tu Username aquí 👀",
-        "passTitle": "Introduce tu contraseña 🔐",
-        "password": "Ingresa tu contraseña aquí 👀",
-        "stringErr": "Lo siento, no puedes enviar un string vacío",
-        "loading": "Iniciando sesión",
-        "invalid": "Ups... Parece que tus credenciales son inválidas.\nIntenta ejecutar: {command} para intentarlo una vez más!",
-        "success": "{usernameCmd}✨ Bienvenido de vuelta 👋"
+	"credentials": {
+		"loading": "Saving credentials 📩",
+		"success": "Your credentials have been successfully saved",
+		"failed": "It was impossible to save credentials due to an unexpected error...",
+		"update": "Updating your data",
+        "updateSuccess": "Your credentials have been successfully updated"
+	},
+	"tweet": {
+		"title": "Write tweet to be published",
+		"max": "Make sure not to exceed 100 characters",
+		"min": "At least write 2 characters",
+		"confirm": "Are you sure of the tweet:",
+		"success": "Your tweet has been successfully published, you can look it on: {{user}}'s account"
+	},
+	"tweetInfo": {
+		"title": "Visualize public information on a tweet. (Doesn't require to log in)",
+		"url": "Enter the tweet url 🔗",
+		"invalid": "Url is invalid",
+		"loading": "Obtaining information",
+		"success": "Tweet recovered succesfully",
+		"failed": "Whoa, looks like this tweet has been deleted",
+		"infoTitle": "{{username}}'s Tweet has been successfully recovered"
+	},
+	"configOptions": {
+		"lang": "Language"
+	},
+	"langConfig": {
+		"title": "Select preferred language:",
+		"en": "English",
+		"es": "Spanish",
+		"save": "Haz cambiado el idioma predeterminado de Tweet CLI a Español!"
+	},
+	"api": {
+        "fall": "Oh! It seems the API is down :("
     },
-    "credentials": {
-        "loading": "Guardando credenciales 📩",
-        "success": "Tus credenciales han sido guardadas con éxito",
-        "failed": "Vaya, fue imposible guardar tus credenciales debido a un error inesperado..."
-    },
-    "tweet": {
-        "title": "Ingresa el cuerpo del Tweet a publicar",
-        "max": "Asegúrate de no ingresar más de 100 caracteres",
-        "min": "Asegúrate de ingresar al menos más de 2 caracteres",
-        "confirm": "Estás seguro del tweet:",
-        "success": "Tu Tweet se ha publicado con éxito, puedes verlo en la cuenta de: {user}"
-    },
-    "tweetInfo": {
-        "title": "Visualiza información pública de un Tweet. (No requiere iniciar sesión)",
-        "url": "Ingresa la url del Tweet 🔗",
-        "invalid": "La url es inválida",
-        "loading": "Obteniendo información",
-        "success": "Tweet recuperado con éxito",
-        "failed": "Vaya! Parece que el Tweet del que quieres obtener información fue eliminado."
-    },
-    "lang-config": {
-        "title": "Selecciona tu idioma de preferencia:"
+	"globalErrors": {
+        "unexpected": "Sorry, an unexpected error occurred"
     }
 }
