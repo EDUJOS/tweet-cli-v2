@@ -19,6 +19,6 @@ jobs:
 
       # --- Prefiero hacerlo manualmente ---
       # - run: npm version patch
-      - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_PUBLISH_TOKEN}}
+      #- run: npm publish
+      #  env:
+      #    NODE_AUTH_TOKEN: ${{secrets.NPM_PUBLISH_TOKEN}}
